@@ -1,0 +1,215 @@
+\rhead{\color{main}1 Review}
+\section{Review}
+
+We begin our discussion of mathematical statistics with a review of concepts from previous courses. One of these key concepts is that of probability.
+
+Recall that the \textbf{sample space} $\Omega$ is the set of all possible outcomes of an experiment. Subsets of $\Omega$ are called \textbf{events} and the collection of all events is denoted by $\mathcal F$.
+
+\begin{definition}[probability set function]
+	Let $\Omega$ be a sample space and let $\mathcal F$ be the collection of all events. Let $P$ be a real-valued function defined on $\mathcal F$. Then $P$ is a \textbf{probability set function} (also referred to as \textbf{probability measure}, \textbf{probability distribution} or simply \textbf{probability}) if it satisfies the following three conditions:
+	\begin{enumerate}
+		\item $0\leq P(A)\leq 1$, for all $A\in\mathcal F$.
+		\item $P(\Omega)=1$ and $P(\emptyset)$.
+		\item If $\{A_n\}$ is a sequence of events in $\mathcal F$ and $A_m\cap A_n=\emptyset$ for all $m\neq n$, then
+
+		$$P\left(\bigcup_{i=1}^\infty A_i\right)=\sum_{i=1}^\infty P(A_i)$$
+	\end{enumerate}
+\end{definition}
+
+Another important concept is that of a random variable and its support in order to formalize quantities which depend on random events.
+
+\begin{definition}[random variable]
+	Let $\Omega$ be a sample space. A \textbf{random variable}, often abbreviated RV, is a function from $\Omega$ into the real numbers. The \textbf{support} (also called \textbf{space} or \textbf{range}) of $X$ is the set of real numbers $\mathcal S=\{x:x=X(\omega),\omega\in \Omega\}$.
+\end{definition}
+
+In cases where $\mathcal S$ is a countable set, we say that $X$ is a \textbf{discrete RV}. The set $\mathcal S$ may also be an interval of real numbers, in which case we say that $X$ is a \textbf{continuous RV}.
+
+Given a random variable $X$, its support $\mathcal S$ becomes the sample space of interest. Besides inducing the sample space $\mathcal S$, $X$ also induces a probability which we call the \textbf{distribution} of $X$.
+
+The probability distribution of a discrete random variable is described completely in terms of its probability mass function and its support.
+
+\begin{definition}[pmf]
+	Let $X$ be a discrete random variable with support $\mathcal S$. The \textbf{probability mass function} (pmf) of $X$ is given by
+$$p_X(x) = P(X = x),\text{ for }x \in \mathcal S.$$
+\end{definition}
+
+Similarly, the probability distribution of a continuous random variable is described completely in terms of its probability density function and its support.
+
+\begin{definition}[pdf]
+	Let $X$ be a continuous random variable with support $\mathcal S$. The \textbf{probability density function} (pdf) of $X$ is a function $f_X$ that satisfies
+$$P(X\in A)=\int_\mathcal Sf_X(x)\dd x$$
+where $A$ is a subset of $\mathbb R$ that can be written as a countable union of intervals.
+\end{definition}
+
+The pmf of a discrete random variable and the pdf of a continuous random variable are quite different entities. The cumulative distribution function, though, uniquely determines the probability distribution of a random variable.
+
+\begin{definition}[cdf]
+	Let $X$ be a random variable. Then its \textbf{cumulative distribution function} (cdf) is defined by $F_X(x)$, where
+$$F_X(x)=P(X\leq x).$$
+\end{definition}
+
+One of the most important measures associated with RVs is that of expectation.
+
+\begin{definition}[expectation]
+	Let $X$ be a random variable with support $\mathcal S$.
+
+	If $X$ is a \textit{continuous} random variable with pdf $f(x)$ and
+	$$\int_{\mathcal S}|x|f(x)\dd x$$
+	is finite, then the \textbf{expectation} of $X$, denoted $E(X)$ is defined as
+	$$E(X)=\int_{\mathcal S} xf(x)\dd x.$$ 
+
+	If $X$ is a \textit{discrete} random variable with pmf $p(x)$ and
+	$$\sum_{x\in\mathcal S}|x|p(x)$$
+	is finite, then the \textbf{expectation} of $X$ is defined as
+	$$\sum_{x\in\mathcal S}xp(x).$$
+\end{definition}
+
+Sometimes the expectation $E(X)$ is called the \textbf{expected value} of $X$ or the \textbf{mean} of $X$. When the mean designation is used, we often denote the expected value by $\mu$.
+
+\begin{theorem}[]
+	Let $X$ be a random variable and let $Y=g(X)$ for some function $g$.
+	\begin{enumerate}[label=\color{main}(\alph*)]
+		\item Suppose $X$ is discrete with pmf $p_X(x)$ and support $\mathcal S_X$. If $\sum_{x\in\mathcal S_X}|g(x)|p_X(x)$ is finite, then the expectation of $Y$ exists and is given by $$\sum_{x\in\mathcal S_X}g(x)p_X(x).$$
+		\item Suppose $X$ is continuous with pdf $f_X(x)$ and support $\mathcal S_X$. If $\int_{\mathcal S_X}|g(x)|f_X(x)\dd x$ is finite, then the expectation of $Y$ exists and is given by $$\int_{\mathcal S_X}g(x)f_X(x)\dd x.$$
+	\end{enumerate}
+\end{theorem}
+
+An important application of the above theorem shows that expectation is \textit{linear}. That is, $E(aX+b)=aE(X)+b$. Furthermore, this property can be generalized for $a_1,\hdots,a_k$ real numbers and $g_1,\hdots,g_k$ real-valued functions.
+$$E(a_1g_1(X)+\cdots+a_kg_k(X))=a_1E(g_1(X))+\cdots+a_kE(g_k(X))$$
+
+Expectation allows us to define a countably infinite number of measures associated with RVs, called moments.
+
+\begin{definition}[moment]
+	Suppose $X$ is a RV and $m$ is a positive integer. The \textbf{$m$th moment} of $X$ is defined to be $E(X^m)$, provided this expectation exists.
+\end{definition}
+
+As such, the 1st moment of a RV is simply its \textbf{mean} $\mu$. It is often useful to think about moments about the mean $E((X-\mu)^m)$. We call these \textbf{central moments}. The 2nd central moment should be familiar to you as the \textbf{variance} $\sigma^2$. We call the 3rd central moment the \textbf{skewness} and call the 4th central moment the \textbf{kurtosis}.
+
+\begin{definition}[moment generating function]
+	Let $X$ be a random variable such that for some $h>0$, the expectation of $e^{tX}$ exists for $-h<t<h$. The \textbf{moment generating function} of $X$ is defined to be the function $M_X(t)=E(e^{tX})$ for $-h<t<h$.
+\end{definition}
+
+Clearly, $M_X(0)=1$ for any RV. Not every random variable has a mgf. For example, the mgf of the Cauchy Distribution with pdf $f(x)=\frac{1}{\pi(1+x^2)}$ is not defined. It can be shown that if the mgf of a RV exists, then all of its moments exist.
+
+\begin{theorem}[]
+	Let $X$ and $Y$ be RVs with mgfs $M_X$ and $M_Y$, respectively, existing in open intervals about 0. Then $F_X(z)=F_Y(z)$ for all $z\in\mathbb R$ if and only if $M_X(t)=M_Y(t)$ for all $t\in(-h,h)$ for some $h>0$.
+\end{theorem}
+
+\begin{theorem}[]
+	Let $X$ be a RV with mgf $M_X$, and let $a,b\in\mathbb R$ be fixed. Then the mgf of $Y=aX+b$ also exists and is given by $$M_Y(t)=e^{bt}M_X(at).$$
+\end{theorem}
+
+\begin{theorem}[]
+	Suppose $X$ and $Y$ are independent RVs with mgfs $M_X$ and $M_Y$. Let $a,b\in\mathbb R$ be fixed and define $Z+aX+bY$. Then the mgf of $Z$ exists in an open interval about 0 and is given by
+	$$M_Z(t)=M_X(at)M_Y(bt).$$
+\end{theorem}
+
+\begin{theorem}[]
+	Suppose $X$ is a RV with mgf $M_X$ and $M_X^{(m)}(t)=\frac{\mathrm{d}^m}{\dd t^m}M_X(t)$. Then the $m$th moment of $X$ is given by $$E(X^m)=M_X^{(m)}(0).$$
+\end{theorem}
+
+The above theorem should make clear why we call mgfs as such. The proof is reliant on the Taylor expansion of $e^{tX}$. Observe the following.
+\begin{align*}
+	M_X(t)&=E(e^{tX})\\
+	&=E\left(\sum_{n=0}^\infty \frac{t^n}{n!}X^n\right)\\
+	&=\sum_{n=0}^\infty \frac{t^n}{n!}E(X^n)
+\end{align*}
+
+We reintroduce some special distributions, starting with those of the discrete kind.
+
+\begin{definition}[binomial RV]
+	Assume a sequence of $n$ Bernouilli trials each with probability of success $p$ and let $X$ be the number of successes. Then $X$ is a \textbf{binomial RV} with pmf $$p_X(x)=\begin{cases}
+		\binom{n}{x}p^x(1-p)^{n-x} & \text{for $x=0,1,\hdots,n$}\\
+		0 & \text{otherwise}
+	\end{cases}$$
+	We write $X\sim b(n,p)$.
+\end{definition}
+
+If $X\sim b(n,p)$, $X$ has support $\{0,1,\hdots,n\}$, mean $\mu=np$, variance $\sigma^2=np(1-p)$ and mgf $M_X(t)=(1-p+pe^t)^n$.
+
+\begin{definition}[negative binomial RV]
+	Assume a sequence of Bernouilli trials each with probability of success $p$ is performed until the $r$th success occurs. Let $Y$ be the number of trials required. Then $Y$ is a \textbf{negative binomial RV} with pmf $$p_Y(y)=\begin{cases}
+		\binom{y+r-1}{y-1}p^r(1-p)^y & \text{for $y=0,1,\hdots$}\\
+		0 & \text{otherwise}
+	\end{cases}$$
+	We write $Y\sim \mathop{nb}(r,p)$.
+\end{definition}
+
+If $Y\sim \mathop{nb}(r,p)$, $Y$ has support $\mathbb Z_{\geq 0}$, mean $\mu=\frac{pr}{1-p}$, variance $\sigma^2=\frac{pr}{(1-p)^2}$ and mgf $M_Y(t)=\left(\frac{1-p}{1-pe^t}\right)$ with $t<-\ln p$.
+
+Taking $r=1$, we obtain the geometric distribution.
+
+\begin{definition}[Poisson RV]
+	A discrete RV $X$ is a \textbf{Poisson RV} if its pmf has the form $$p_X(x)=\begin{cases}
+		\frac{\lambda^xe^{-\lambda}}{x!} & \text{for $x=0,1,\hdots$}\\
+		0 & \text{otherwise}
+	\end{cases}$$
+	where $\lambda\in\mathbb R_{\geq 0}$. We write $X\sim \operatorname{Pois}(\lambda)$.
+\end{definition}
+
+If $X\sim \operatorname{Pois}(\lambda)$, $X$ has support $\mathbb Z_{\geq 0}$, mean $\mu=\lambda$, variance $\sigma^2=\lambda$ and mgf $M_X(t)=\exp(\lambda(e^t-1))$.
+
+We now recall some continuous distributions.
+
+\begin{definition}[uniform RV]
+	A continuous RV $X$ is said to be a \textbf{uniform RV} if it has pdf
+	$$p_X(x)=\begin{cases}
+		\frac{1}{b-a} & \text{for $x\in[a,b])$}\\
+		0 & \text{otherwise}
+	\end{cases}$$
+	where $a,b\in\mathbb R$ are fixed. We write $X\sim U(a,b)$.
+\end{definition}
+
+If $X\sim U(a,b)$, $X$ has support $[a,b]$, mean $\mu=\frac{a+b}{2}$, variance $\sigma^2=\frac{(b-a)^2}{12}$ and mgf $M_X(t)=\begin{cases}
+	\frac{e^{tb}-e^{ta}}{t(b-a)} & \text{for $t\neq 0$}\\
+	1 & \text{for $t= 0$}
+\end{cases}$.
+
+\begin{definition}[normal RV]
+	A continuous RV $X$ is said to be a \textbf{normal RV} with parameters $\mu\in\mathbb R$ and $\sigma^2>0$ if its pdf has the form
+	$$f_X(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}.$$
+	We write $X\sim N(\mu,\sigma^2)$.
+\end{definition}
+
+If $X\sim N(\mu,\sigma^2)$, $X$ has support $\mathbb R$, mean $\mu$, variance $\sigma^2$ and mgf $M_X(t)=e^{\mu t+\frac{\sigma^2 t^2}{2}}$.
+
+The derivation of this mgf follows, as a review.
+
+\begin{align*}
+	M_X(t)&=E(e^{tX})\\
+	&=\int_{-\infty}^\infty\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}e^{tx}\dd x\\
+	\intertext{Let $z=\frac{x-\mu}{\sigma}$.}
+	&=e^{\mu t}\int e^{z\sigma t}\frac 1{\sqrt{2\pi\sigma^2}}e^{-\frac 12z^2}\dd z\\
+	&=e^{\mu t}e^{\frac{\sigma^2 t^2}{2}}\\
+	&=e^{\mu t+\frac{\sigma^2 t^2}{2}}
+\end{align*}
+
+\begin{theorem}[]
+	Let $X_1,\hdots,X_n$ be IID RVs such that $X_i\sim N(\mu_i,\sigma_i^2)$ for each $i=1,\hdots,n$. Let $Y=\sum_{i=1}^na_iX_i$ for some set of real constants $\{a_1,\hdots,a_n\}$. Then $Y$ is also normally distributed and
+$$Y\sim N\left(\sum_{i=1}^na_i\mu_i,\sum_{i=1}^na_i^2\sigma_i^2\right).$$
+\end{theorem}
+
+\begin{definition}[gamma RV]
+	A continuous RV $X$ is said to be a \textbf{gamma RV} with parameters $\alpha,\beta>0$ if its pdf has the form
+	$$f_X(x)=\begin{cases}
+		\frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha - 1} e^{-\beta x } & \text{for $x\in\mathbb R_{>0}$}\\
+		0 & \text{otherwise}
+	\end{cases}.$$
+	We write $X\sim \Gamma(\alpha,\beta)$.
+\end{definition}
+
+Taking $\alpha=1$ yields the exponential distribution.
+
+If $X\sim \Gamma(\alpha,\beta)$, $X$ has support $\mathbb R_{>0}$, mean $\mu=\frac{\alpha}{\beta}$, variance $\sigma^2=\frac{\alpha}{\beta^2}$ and mgf $M_X(t)=\left(1 - \frac{t}{\beta}\right)^{-\alpha}$ for $t < \beta$.
+
+
+\begin{definition}[beta RV]
+	A continuous RV $X$ is said to be a \textbf{beta RV} with parameters $\alpha,\beta>0$ if its pdf has the form
+	$$f_X(x)=\begin{cases}
+		\frac{x^{\alpha-1}(1-x)^{\beta-1}} {\mathrm{B}(\alpha,\beta)} & \text{for $x\in(0,1)$}\\
+		0 & \text{otherwise}
+	\end{cases}$$
+	where $\mathrm{B}(\alpha,\beta) = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha + \beta)}$. We write $X\sim \operatorname{Beta}(\alpha,\beta)$.
+\end{definition}
+
+If $X\sim \operatorname{Beta}(\alpha,\beta)$, $X$ has support $(0,1)$, mean $\mu=\frac{\alpha}{\alpha + \beta}$, variance $\sigma^2=\frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$ and mgf $M_X(t)=1+\sum_{k=1}^{\infty} \left( \prod_{r=0}^{k-1} \frac{\alpha+r}{\alpha+\beta+r} \right) \frac{t^k}{k!}$.

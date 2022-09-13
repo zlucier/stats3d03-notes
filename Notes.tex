@@ -1,0 +1,120 @@
+\documentclass[12pt,notitlepage]{article}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{array}
+
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage[shortlabels]{enumitem}
+\usepackage{graphicx}
+\usepackage[font=scriptsize]{caption}
+
+\usepackage{fourier-otf}
+\DeclareMathAlphabet{\mathcal}{OMS}{zplm}{m}{n}
+
+\usepackage[margin=1in,includehead,includefoot,headheight=17pt]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+
+\newcommand{\dd}[1]{\mathop{\mathrm{d}#1}}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\curl}{\operatorname{curl}}
+\renewcommand{\div}{\operatorname{div}}
+\newcommand{\die}{\partial}
+\newcommand{\spanvec}{\operatorname{span}}
+\newcommand{\range}{\operatorname{range}}
+\renewcommand{\null}{\operatorname{null}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\cis}{\operatorname{cis}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\Res}{\mathop{\operatorname{Res}}}
+
+\usepackage[many]{tcolorbox}
+
+\definecolor{main}{HTML}{009688} % Main color (light, material teal 500)
+\include{light}
+
+%\definecolor{main}{HTML}{80CBC4} % Main color (dark, material teal 200)
+%\include{dark} % dark mode
+
+
+\setlist[itemize]{label=\textcolor{main}{\textbullet}}
+\setlist[enumerate]{label=\textcolor{main}{\arabic*.}}
+
+\let\oldheadrule\headrule% Copy \headrule into \oldheadrule
+\renewcommand{\headrule}{\color{main}\oldheadrule}% Add colour to \headrule
+\renewcommand{\headrulewidth}{0.5pt}
+
+\usepackage{titlesec}
+
+\titleformat{\section}
+{\color{main}\normalfont\Large\bfseries}
+{\color{main}\thesection}{1em}{}
+
+\newtheoremstyle{theoremc} % name
+    {}                    % Space above
+    {}                    % Space below
+    {}                   % Body font \itshape
+    {}                           % Indent amount
+    {\bfseries\color{main}}                   % Theorem head font
+    {.}                          % Punctuation after theorem head
+    {.5em}                       % Space after theorem head
+    {}
+
+\theoremstyle{theoremc}
+\newtheorem{amstheorem}{Theorem}
+\numberwithin{amstheorem}{section}
+\newtheorem{amsdefinition}{Definition}
+\numberwithin{amsdefinition}{section}
+\newtheorem{amsexample}{Example}
+\numberwithin{amsexample}{section}
+
+\newenvironment{theorem}[1][\unskip]
+    {\begin{thmbox}
+    \begin{amstheorem}[#1]
+    }{\end{amstheorem}
+    \end{thmbox}
+    }
+
+\newenvironment{definition}[1][\unskip]
+    {\begin{defbox}
+    \begin{amsdefinition}[#1]
+    }{\end{amsdefinition}
+    \end{defbox}
+    }
+
+\newenvironment{example}[1][\unskip]
+    {\begin{exbox}
+    \begin{amsexample}[#1]
+    }{\end{amsexample}
+    \end{exbox}
+    }
+
+\lhead{\color{main}STATS 3D03, Fall 2022}
+\chead{\color{main}Course Notes by Zach Lucier}
+\cfoot{\color{main}\thepage}
+
+\fancypagestyle{plain}{%
+\fancyhf{}% clear all header and footer fields
+\fancyfoot[C]{\color{main}\thepage} % except the center
+\renewcommand{\headrulewidth}{0pt}%
+\renewcommand{\footrulewidth}{0pt}%
+}
+
+\begin{document}
+
+\include{sections/1review}
+
+\break
+
+\include{sections/2multivariate}
+
+\end{document}
