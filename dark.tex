@@ -6,6 +6,7 @@
 
 \newtcolorbox{thmbox}{
 enhanced,
+breakable,
 boxrule=0pt,frame hidden,
 colback=main!20!darkbg,
 coltext=white,
@@ -16,10 +17,11 @@ left=6pt,right=6pt,
 %sharp corners
 }
 \newtcolorbox{defbox}{
-enhanced,
+enhanced jigsaw,
+breakable,
 boxrule=1.5pt,
 colframe=main,
-colback=darkbg,
+opacityback=0,
 coltext=white,
 arc=6pt,
 before skip=12pt,after skip=12pt,
@@ -29,9 +31,10 @@ left=6pt,right=6pt,
 }
 
 \newtcolorbox{exbox}{
-enhanced,
+enhanced jigsaw,
+breakable,
 boxrule=0pt,frame hidden,
-colback=darkbg,
+opacityback=0,
 coltext=white,
 borderline west={1.5pt}{0pt}{main},
 before skip=12pt,after skip=12pt,

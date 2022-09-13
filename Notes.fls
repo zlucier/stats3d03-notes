@@ -266,9 +266,9 @@ INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbhooks.code.tex
 INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbtheorems.code.tex
 INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbfitting.code.tex
 INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbxparse.code.tex
-OUTPUT light.aux
-INPUT light.tex
-INPUT light.tex
+OUTPUT dark.aux
+INPUT dark.tex
+INPUT dark.tex
 INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/titlesec/titlesec.sty
 INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/titlesec/titlesec.sty
 INPUT Notes.aux

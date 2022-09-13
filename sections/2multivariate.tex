@@ -4,10 +4,10 @@
 We will often want to deal with more than one variable based on the same random experiment.
 
 \begin{definition}[random vector]
-	Consider a random experiment with sample space $\Omega$. Let $X_1,X_2:\Omega\to\mathbb R$ be RVs. We say that $(X_1,X_2)$ is a \textbf{random vector}. The support of $(X_1,X_2)$ is the set of ordered pairs $\chi=\{(x_1,x_2):X_1(\omega)=x_1,X_2(\omega)=x_2,\omega\in \Omega\}$.
+	Consider a random experiment with sample space $\Omega$. Let $X_1,X_2:\Omega\to\mathbb R$ be random variables. We say that $(X_1,X_2)$ is a \textbf{random vector}. The support of $(X_1,X_2)$ is the set of ordered pairs $\chi=\{(x_1,x_2):X_1(\omega)=x_1,X_2(\omega)=x_2,\omega\in \Omega\}$.
 \end{definition}
 
-Of particular interest are events of the forms $(X_1\leq x_1)\cap(X_2\leq x_2)$ for $(x_1,x_2)\in\mathbb R^2$
+Of particular interest are events of the forms $(X_1\leq x_1)\cap(X_2\leq x_2)$ for $(x_1,x_2)\in\mathbb R^2$.
 
 \begin{definition}[joint cdf]
 	Suppose that $(X_1,X_2)$ is a random vector. The \textbf{joint cdf} is defined as $$F_{X_1,X_2}(x_1,x_2)=P((X_1\leq x_1)\cap(X_2\leq x_2)).$$
@@ -19,9 +19,9 @@ From here we can extend the univariate case for the probability over intervals t
 	Suppose that the random vector $(X_1,X_2)$ has joint cdf $F_{X_1,X_2}$ and let $a_1,b_1,a_2,b_2\in\mathbb R$ be such that $a_1<b_1$ and $a_2<b_2$. Then $$P((X_1,X_2)\in[a_1,b_1]\times[a_2,b_2])=F_{X_1,X_2}(b_1,b_2)-F_{X_1,X_2}(a_1,b_2)-F_{X_1,X_2}(b_1,a_2)+F_{X_1,X_2}(a_1,a_2).$$
 \end{theorem}
 
-Recall that, in general, RVs can be of the discrete type or of the continuous type. We extend this idea to random vectors.
+Recall that, in general, random variables can be of the discrete type or of the continuous type. We extend this idea to random vectors.
 
-A random vector $(X_1,X_2)$ is said to be \textbf{discrete} if its support $\chi$ is countable. In this case both $X_1$ and $X_2$ are discrete RVs. It thus makes sense to define pmfs for random vectors.
+A random vector $(X_1,X_2)$ is said to be \textbf{discrete} if its support $\chi$ is countable. In this case both $X_1$ and $X_2$ are discrete random variables. It thus makes sense to define pmfs for random vectors.
 
 \begin{definition}[joint pmf]
 	Let $(X_1,X_2)$ be a discrete random vector. Then the \textbf{joint pmf} of $(X_1,X_2)$ is given by
@@ -36,11 +36,14 @@ As in the univariate case, this joint pmf satisfies the following properties.
 \end{enumerate}
 
 \begin{example}[]
-	Suppose two dice are rolled. Let $X$ denote the number of dots facing up on the first die and $Y$ the number of dots on the second die. Also, let $W$ denote the larger of the two. We would like to find the joint pmf of $(X,W)$.
+	Suppose two dice are rolled. Let $X$ denote the number of dots facing up on the first die and $Y$ the number of dots on the second die. Also, let $W=\max(X,Y)$. We would like to find the joint pmf of the random vector $(X,W)$ and the probability that $X=W$.
 
-	By the equally likely model, the joint pmf of $(X,W)$ is summarized by the following table.
+	\textit{Solution.} Let $\chi$ denote the support of $(X,W)$. It is clear that $\chi=\{1,\hdots,6\}\times\{1,\hdots,6\}$.
+
+	By the equally likely model, the joint pmf $p_{X,W}$ of $(X,W)$ can be summarized by the following table.
 
 	\begin{center}
+	%\rowcolors{2}{white}{main!10}
 	\begin{tabular}{c | c c c c c c}
 		$W/X$ & 1 & 2 & 3 & 4 & 5 & 6\\\hline
 		1 & $\frac{1}{36}$ & 0 & 0 & 0 & 0 & 0\\
@@ -52,31 +55,33 @@ As in the univariate case, this joint pmf satisfies the following properties.
 	\end{tabular}
 	\end{center}
 
-	Note that it is clearly the case that $0\leq p_{X,W}(x,w)\leq 1$ and $\sum_{(x,w)\in(X,W)}p_{X,W}(x,w)=1$.
+	It is clearly the case that $0\leq p_{X,W}(x,w)\leq 1$ and $\sum_{(x,w)\in(X,W)}p_{X,W}(x,w)=1$.
 
-	Suppose we wanted to find 
+	We can now find the probability that $X=W$. That is, that the first die has the larger number of dots. We sum along the diagonal of the above table.
 	\begin{align*}
-		\sum_{\substack{(x,w)\in\chi\\x=w}}p_{X,W}(x,w)\\
+		\sum_{\substack{(x,w)\in\chi\\x=w}}p_{X,W}(x,w)&=\frac 1{36}+\frac{2}{36}+\cdots+\frac{6}{36}\\
 		&=\frac{7}{12}
 	\end{align*}
+
 \end{example}
 
-If the joint cdf of a random vector $(X_1,X_2)$ is continuous, then we say that $(X_1,X_2)$ is continuous. Similarly to a joint pmf, we can also define a joint pdf
+If the joint cdf $F_{X_1,X_2}$ of a random vector $(X_1,X_2)$ is continuous, then we say that $(X_1,X_2)$ is \textbf{continuous}. Similarly to a joint pmf, we can also define a joint pdf.
 
 \begin{definition}[joint pdf]
-	Let $(X_1,X_2)$ be a continuous random vector. Then the \textbf{joint pdf} of $(X_1,X_2)$ is the function $f_{X_1,X_2}:\mathbb R^2\to\mathbb R_+$ satisfying
-	$$F_{X_1,X_2}(x_1,x_2)>\int_{-\infty}^{x_2}\int_{-\infty}^{x_1}f_{X_1,X_2}(u,v)\dd u\dd v.$$
+	Let $(X_1,X_2)$ be a continuous random vector. Then the \textbf{joint pdf} of $(X_1,X_2)$ is the function $f_{X_1,X_2}:\mathbb R^2\to\mathbb R_{>0}$ satisfying
+	$$F_{X_1,X_2}(x_1,x_2)=\int_{-\infty}^{x_2}\int_{-\infty}^{x_1}f_{X_1,X_2}(u,v)\dd u\dd v$$
+	for all $(x_1,x_2)\in\mathbb R^2$.
 \end{definition}
 
-As in the univariate case, the pdf satisfies the following properties
-
+As in the univariate case, the joint pdf satisfies the following properties.
 \begin{enumerate}
 	\item $f_{X_1,X_2}(x_1,x_2)\geq 0$ for all $(x_1,x_2)\in\mathbb R^2$.
 	\item $\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f_{X_1,X_2}(u,v)\dd u\dd v=1$.
 \end{enumerate}
 
-We may also define the marginal cdf of a random vector $(X_1,X_2)$.
+Often times, we will want to obtain the distributions of the random variables $X_1$ and $X_2$ from the joint distribution of $(X_1,X_2)$.
 
+Given the above setup, we obtain the \textbf{marginal cdf} from the following equivalent formulations.
 \begin{align*}
 	F_{X_1}&=P(X_1\leq x_1)\\
 	&=P(X_1\leq x_1,-\infty<X_2<\infty)\\
@@ -84,7 +89,7 @@ We may also define the marginal cdf of a random vector $(X_1,X_2)$.
 	&=\lim_{x_2\to\infty} F_{X_1,X_2}(x_1,x_2)
 \end{align*}
 
-We may also find marginal pmfs and pdf.
+We may also find \textbf{marginal pmfs} and \textbf{marginal pdfs}.
 
 If $(X_1,X_2)$ is a discrete random vector, then
 \begin{align*}
@@ -98,8 +103,9 @@ If $(X_1,X_2)$ is a continuous random vector, then
 \end{align*}
 
 \begin{example}[]
-	We revisit the previous example.
+	We revisit the previous example. We would like to find the marginal pmf of $W$.
 
+	\textit{Solution.} We apply the definition.
 	\begin{center}
 	\begin{tabular}{c | c}
 		$W$ & $p_W(w)$\\ \hline
@@ -111,8 +117,6 @@ If $(X_1,X_2)$ is a continuous random vector, then
 		6 & $\frac{11}{36}$
 	\end{tabular}
 	\end{center}
-
-	With such a marginal pmf, we may find marginal expectations directly. In this case, $E(W)=\sum_1^6wp_W(w)$.
 \end{example}
 
 
