@@ -7,24 +7,24 @@ We will often want to deal with more than one variable based on the same random 
 	Consider a random experiment with sample space $\Omega$. Let $X_1,X_2:\Omega\to\mathbb R$ be random variables. We say that $(X_1,X_2)$ is a \textbf{random vector}. The support of $(X_1,X_2)$ is the set of ordered pairs $\chi=\{(x_1,x_2):X_1(\omega)=x_1,X_2(\omega)=x_2,\omega\in \Omega\}$.
 \end{definition}
 
-Of particular interest are events of the forms $(X_1\leq x_1)\cap(X_2\leq x_2)$ for $(x_1,x_2)\in\mathbb R^2$.
+Of particular interest are events of the form $(X_1\leq x_1)\cap(X_2\leq x_2)$ for $(x_1,x_2)\in\mathbb R^2$.
 
 \begin{definition}[joint cdf]
-	Suppose that $(X_1,X_2)$ is a random vector. The \textbf{joint cdf} is defined as $$F_{X_1,X_2}(x_1,x_2)=P((X_1\leq x_1)\cap(X_2\leq x_2)).$$
+	Suppose that $(X_1,X_2)$ is a random vector. The \textbf{joint cdf} of $(X_1,X_2)$, is the function $F_{X_1,X_2}$ defined as $$F_{X_1,X_2}(x_1,x_2)=P(X_1\leq x_1,X_2\leq x_2).$$
 \end{definition}
 
 From here we can extend the univariate case for the probability over intervals to rectangular subsets of $\mathbb R^2$.
 
-\begin{theorem}[]
-	Suppose that the random vector $(X_1,X_2)$ has joint cdf $F_{X_1,X_2}$ and let $a_1,b_1,a_2,b_2\in\mathbb R$ be such that $a_1<b_1$ and $a_2<b_2$. Then $$P((X_1,X_2)\in[a_1,b_1]\times[a_2,b_2])=F_{X_1,X_2}(b_1,b_2)-F_{X_1,X_2}(a_1,b_2)-F_{X_1,X_2}(b_1,a_2)+F_{X_1,X_2}(a_1,a_2).$$
+\begin{theorem}[Rectangular probability formula]
+	Suppose that the random vector $(X_1,X_2)$ has joint cdf $F_{X_1,X_2}$ and let $a_1,b_1,a_2,b_2\in\mathbb R$ be such that $a_1<b_1$ and $a_2<b_2$. Then $$P\left((X_1,X_2)\in[a_1,b_1]\times[a_2,b_2]\right)=F_{X_1,X_2}(b_1,b_2)-F_{X_1,X_2}(a_1,b_2)-F_{X_1,X_2}(b_1,a_2)+F_{X_1,X_2}(a_1,a_2).$$
 \end{theorem}
 
 Recall that, in general, random variables can be of the discrete type or of the continuous type. We extend this idea to random vectors.
 
-A random vector $(X_1,X_2)$ is said to be \textbf{discrete} if its support $\chi$ is countable. In this case both $X_1$ and $X_2$ are discrete random variables. It thus makes sense to define pmfs for random vectors.
+A random vector $(X_1,X_2)$ is said to be \textbf{discrete} if its support $\chi$ is countable. In this case both $X_1$ and $X_2$ are discrete random variables. It thus makes sense to define pmfs for discrete random vectors.
 
 \begin{definition}[joint pmf]
-	Let $(X_1,X_2)$ be a discrete random vector. Then the \textbf{joint pmf} of $(X_1,X_2)$ is given by
+	Let $(X_1,X_2)$ be a discrete random vector. Then the \textbf{joint pmf} of $(X_1,X_2)$, is the function $p_{X_1,X_2}$ given by
 
 	$$p_{X_1,X_2}(x_1,x_2)=P(X_1=x_1,X_2=x_2).$$
 \end{definition}
@@ -40,7 +40,7 @@ As in the univariate case, this joint pmf satisfies the following properties.
 
 	\textit{Solution.} Let $\chi$ denote the support of $(X,W)$. It is clear that $\chi=\{1,\hdots,6\}\times\{1,\hdots,6\}$.
 
-	By the equally likely model, the joint pmf $p_{X,W}$ of $(X,W)$ can be summarized by the following table.
+	The joint pmf $p_{X,W}$ of $(X,W)$ can be summarized by the following table.
 
 	\begin{center}
 	%\rowcolors{2}{white}{main!10}
@@ -55,7 +55,7 @@ As in the univariate case, this joint pmf satisfies the following properties.
 	\end{tabular}
 	\end{center}
 
-	It is clearly the case that $0\leq p_{X,W}(x,w)\leq 1$ and $\sum_{(x,w)\in(X,W)}p_{X,W}(x,w)=1$.
+	It is clearly the case that $0\leq p_{X,W}(x,w)\leq 1$ and $\sum_{(x,w)\in\chi}p_{X,W}(x,w)=1$.
 
 	We can now find the probability that $X=W$. That is, that the first die has the larger number of dots. We sum along the diagonal of the above table.
 	\begin{align*}
@@ -68,7 +68,7 @@ As in the univariate case, this joint pmf satisfies the following properties.
 If the joint cdf $F_{X_1,X_2}$ of a random vector $(X_1,X_2)$ is continuous, then we say that $(X_1,X_2)$ is \textbf{continuous}. Similarly to a joint pmf, we can also define a joint pdf.
 
 \begin{definition}[joint pdf]
-	Let $(X_1,X_2)$ be a continuous random vector. Then the \textbf{joint pdf} of $(X_1,X_2)$ is the function $f_{X_1,X_2}:\mathbb R^2\to\mathbb R_{>0}$ satisfying
+	Let $(X_1,X_2)$ be a continuous random vector. Then the \textbf{joint pdf} of $(X_1,X_2)$ is the function $f_{X_1,X_2}$ satisfying
 	$$F_{X_1,X_2}(x_1,x_2)=\int_{-\infty}^{x_2}\int_{-\infty}^{x_1}f_{X_1,X_2}(u,v)\dd u\dd v$$
 	for all $(x_1,x_2)\in\mathbb R^2$.
 \end{definition}
@@ -81,7 +81,7 @@ As in the univariate case, the joint pdf satisfies the following properties.
 
 Often times, we will want to obtain the distributions of the random variables $X_1$ and $X_2$ from the joint distribution of $(X_1,X_2)$.
 
-Given the above setup, we obtain the \textbf{marginal cdf} from the following equivalent formulations.
+Given the above setup, we may obtain the \textbf{marginal cdf} of $X_1$ from the following equivalent formulations.
 \begin{align*}
 	F_{X_1}&=P(X_1\leq x_1)\\
 	&=P(X_1\leq x_1,-\infty<X_2<\infty)\\
@@ -158,6 +158,34 @@ If $(X_1,X_2)$ is a continuous random vector, then
 
 Expectations in the multivariate case are easily extended from the univariate case to random vectors.
 
-Suppose $(X_1,X_2)$ is a random vector and let $Y=g(X_1,X_2)$ for $g:\mathbb R^2\to\mathbb R$.
+\begin{theorem}[Law of the unconscious statistician (multivariate)]
+	Let $(X_1,X_2)$ be a random vector and let $Y=g(X_1,X_2)$ for some real-valued function $g$. Then $Y$ is a random variable and we have the following.
+	\begin{enumerate}[label=\color{main}(\alph*)]
+		\item Suppose $(X_1,X_2)$ is discrete with pmf $p_{X_1,X_2}(x_1,x_2)$. If $$\sum_{x_1}\sum_{x_2}|g(x_1,x_2)|p_{X_1,X_2}(x_1,x_2)$$ is finite, then the expectation of $Y$ exists and is given by $$E(Y)=\sum_{x_1}\sum_{x_2}g(x_1,x_2)p_{X_1,X_2}(x_1,x_2).$$
+		\item Suppose $(X_1,X_2)$ is continuous with pdf $f_{X_1,X_2}(x_1,x_2)$. If $$\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}|g(x_1,x_2)|f_{X_1,X_2}(x_1,x_2)\dd{x_1}\dd{x_2}$$ is finite, then the expectation of $Y$ exists and is given by $$E(Y)=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}g(x_1,x_2)f_{X_1,X_2}(x_1,x_2)\dd{x_1}\dd{x_2}.$$
+	\end{enumerate}
+\end{theorem}
 
-If $(X_1,X_2)$ is discrete with joint pmf $p_{X_1,X_2}$, then $E(Y)$ exists if [insert condition] and is defined as $$E(Y)=\sum_{x_1}\sum_{x_2} g(x_1,x_2)p_{X_1,X_2}(x_1,x_2)$$
+We can now that expectation is a linear operator.
+
+\begin{theorem}[Linearity of expectation]
+	Let $(X_1,X_2)$ be a random vector and let $Y_1=g_1(X_1,X_2)$ and $Y_2=g_2(X_1,X_2)$ be random variables for some real-valued functions $g_1$ and $g_2$. Suppose that both $E(Y_1)$ and $E(Y_2)$ exist. Then for all $k_1,k_2\in\mathbb R$,
+	$$E(k_1Y_1+k_2Y_2)=k_1E(Y_1)+k_2E(Y_2).$$
+\end{theorem}
+
+\begin{proof}
+	We prove for the discrete case.
+
+	We show absolute convergence using the triangle inequality.
+	\begin{align*}
+		\sum_{x_1}\sum_{x_2}|k_1g_1(x_1,x_2)+k_2g_2(x_1,x_2)|p_{X_1,X_2}(x_1,x_2)&\leq |k_1|\sum_{x_1}\sum_{x_2}|g_1(x_1,x_2)|p_{X_1,X_2}(x_1,x_2)\\
+		&\quad+|k_2|\sum_{x_1}\sum_{x_2}|g_2(x_1,x_2)|p_{X_1,X_2}(x_1,x_2)
+	\end{align*}
+
+	But $E(Y_1)$ and $E(Y_2)$ exist, so the above is finite and $E(k_1Y_1+k_2Y_2)$ exists.
+	\begin{align*}
+		E(k_1Y_1+k_2Y_2)&=\sum_{x_1}\sum_{x_2}(k_1g_1(x_1,x_2)+k_2g_2(x_1,x_2))p_{X_1,X_2}(x_1,x_2)\\
+		&=k_1\sum_{x_1}\sum_{x_2}g_1(x_1,x_2)p_{X_1,X_2}(x_1,x_2)+k_2\sum_{x_1}\sum_{x_2}g_2(x_1,x_2)p_{X_1,X_2}(x_1,x_2)\\
+		&=k_1E(Y_1)+k_2E(Y_2)
+	\end{align*}
+\end{proof}

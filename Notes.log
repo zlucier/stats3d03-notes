@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.4.7)  13 SEP 2022 15:18
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.4.7)  14 SEP 2022 01:16
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1103,40 +1103,40 @@ Package: titlesec 2019/10/16 v2.13 Sectioning titles
 (./Notes.aux (./sections/1review.aux) (./sections/2multivariate.aux))
 \openout1 = `Notes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 114.
-LaTeX Font Info:    Trying to load font information for T3+cmr on input line 11
-4.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 107.
+LaTeX Font Info:    Trying to load font information for T3+cmr on input line 10
+7.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/tipa/t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
-LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    ... okay on input line 107.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 114.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 107.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 114.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 107.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 114.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 107.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 114.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 107.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1223,24 +1223,18 @@ $[][][][] []
 [3] [4] [5] [6]) [7]
 \openout2 = `sections/2multivariate.aux'.
 
- (./sections/2multivariate.tex
-Underfull \hbox (badness 1377) in paragraph at lines 19--19
-[][]\TU/Erewhon(0)/b/n/12 Theorem 2.1. [][]\TU/Erewhon(0)/m/n/12 Suppose that t
-he random vector $[][][][] [][][]$ has joint cdf $[][]$ and let
- []
-
-[8
+ (./sections/2multivariate.tex [8
 
 
-] [9] [10] [11]) [12] (./Notes.aux (./sections/1review.aux)
-(./sections/2multivariate.aux)) ) 
+] [9] [10] [11] [12])
+[13] (./Notes.aux (./sections/1review.aux) (./sections/2multivariate.aux)) ) 
 Here is how much of TeX's memory you used:
- 39062 strings out of 479418
- 936770 string characters out of 5884586
- 1434208 words of memory out of 5000000
- 56004 multiletter control sequences out of 15000+600000
+ 39057 strings out of 479418
+ 936771 string characters out of 5884586
+ 1434210 words of memory out of 5000000
+ 55999 multiletter control sequences out of 15000+600000
  538789 words of font info for 95 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  69i,15n,119p,808b,1041s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Notes.xdv (12 pages, 275920 bytes).
+Output written on Notes.xdv (13 pages, 304076 bytes).

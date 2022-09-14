@@ -26,25 +26,18 @@
 
 \newcommand{\dd}[1]{\mathop{\mathrm{d}#1}}
 \renewcommand{\vec}[1]{\mathbf{#1}}
-\newcommand{\curl}{\operatorname{curl}}
-\renewcommand{\div}{\operatorname{div}}
-\newcommand{\die}{\partial}
-\newcommand{\spanvec}{\operatorname{span}}
-\newcommand{\range}{\operatorname{range}}
-\renewcommand{\null}{\operatorname{null}}
-\newcommand{\lcm}{\operatorname{lcm}}
-\newcommand{\cis}{\operatorname{cis}}
-\newcommand{\sgn}{\operatorname{sgn}}
-\newcommand{\Res}{\mathop{\operatorname{Res}}}
+\newcommand{\Var}{\operatorname{Var}}
 
 \usepackage[many]{tcolorbox}
 
-%\definecolor{main}{HTML}{009688} % Main color (light, material teal 500)
-%\include{light}
+\definecolor{main}{HTML}{009688} % Main color (light, material teal 500)
+\include{light}
 
-\definecolor{main}{HTML}{80CBC4} % Main color (dark, material teal 200)
-\include{dark} % dark mode
+%\definecolor{main}{HTML}{80CBC4} % Main color (dark, material teal 200)
+%\include{dark} % dark mode
 
+\renewcommand*{\proofname}{\color{main}Proof}
+\renewcommand\qedsymbol{\color{main}$\blacksquare$}
 
 \setlist[itemize]{label=\textcolor{main}{\textbullet}}
 \setlist[enumerate]{label=\textcolor{main}{\arabic*.}}

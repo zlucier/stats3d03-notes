@@ -1,9 +1,9 @@
 # Fdb version 3
-["xdvipdfmx"] 1663096719 "Notes.xdv" "Notes.pdf" "Notes" 1663096720
-  "Notes.xdv" 1663096719 275920 e8a6324612f3764cd9228986265813a6 "xelatex"
+["xdvipdfmx"] 1663132589 "Notes.xdv" "Notes.pdf" "Notes" 1663132590
+  "Notes.xdv" 1663132589 304076 8869bb45bee201e65253cf0255fb15dc "xelatex"
   (generated)
   "Notes.pdf"
-["xelatex"] 1663096717 "Notes.tex" "Notes.xdv" "Notes" 1663096720
+["xelatex"] 1663132587 "Notes.tex" "Notes.xdv" "Notes" 1663132590
   "/usr/local/texlive/2020/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
   "/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmmi5.tfm" 1136768653 1508 3b32edd0d68f6498a5a375e78f9edc5e ""
@@ -188,17 +188,17 @@
   "/usr/local/texlive/2020/texmf-dist/web2c/texmf.cnf" 1583102494 39451 60d7debd9ef8ece44cbe965493576c2d ""
   "/usr/local/texlive/2020/texmf-var/web2c/xetex/xelatex.fmt" 1586288269 4769632 cea4f80911e5df070b1f6d7834d4faf8 ""
   "/usr/local/texlive/2020/texmf.cnf" 1586288231 577 d60164b4589a341208aff7a667fbbdcb ""
-  "Notes.aux" 1663096719 74 6dc3705a098f05da3dc5dd77ae98fc38 "xelatex"
-  "Notes.tex" 1663096717 3199 9baec93a6699e399a690e11c1e28f312 ""
+  "Notes.aux" 1663132589 74 6dc3705a098f05da3dc5dd77ae98fc38 "xelatex"
+  "Notes.tex" 1663132586 2939 4f28340a85461a366a94e4e345cf0125 ""
   "dark.tex" 1663096659 713 b2f51ead94cc00c6209b57d878b3e890 ""
-  "sections/1review.aux" 1663096719 841 94ec4b14745dca8c8d41c77ad5da710d "xelatex"
-  "sections/1review.tex" 1662742501 12298 5b6a2b2c1778cc04c4fcefa9ac89b3ce ""
-  "sections/2multivariate.aux" 1663096719 867 e36f91a0bb317595e93901b0ff634ab4 "xelatex"
-  "sections/2multivariate.tex" 1663094915 6920 18e26064e6d8d0a3928e7058ffd5152d ""
+  "sections/1review.aux" 1663132589 841 94ec4b14745dca8c8d41c77ad5da710d "xelatex"
+  "sections/1review.tex" 1663130462 12410 3c39ccda6e2fe920cbc72a425b7e2f83 ""
+  "sections/2multivariate.aux" 1663132589 867 1503682028e9222fcf949904b84a1249 "xelatex"
+  "sections/2multivariate.tex" 1663132282 8719 a63e75653d46a0387dc4ed3963fef816 ""
   (generated)
-  "sections/1review.aux"
-  "Notes.aux"
-  "sections/2multivariate.aux"
   "Notes.log"
-  "dark.aux"
   "Notes.xdv"
+  "sections/1review.aux"
+  "dark.aux"
+  "sections/2multivariate.aux"
+  "Notes.aux"
