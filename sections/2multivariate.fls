@@ -1,7 +1,0 @@
-PWD /Users/zachlucier/Documents/LaTeX Documents/STATS 3D03/STATS 3D03 Notes/sections
-INPUT /usr/local/texlive/2020/texmf.cnf
-INPUT /usr/local/texlive/2020/texmf-dist/web2c/texmf.cnf
-INPUT /usr/local/texlive/2020/texmf-var/web2c/xetex/xelatex.fmt
-INPUT 2multivariate.tex
-OUTPUT 2multivariate.log
-OUTPUT 2multivariate.xdv
