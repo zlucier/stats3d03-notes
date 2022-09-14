@@ -8,7 +8,7 @@
 enhanced,
 breakable,
 boxrule=0pt,frame hidden,
-colback=main!20!darkbg,
+colback=main!15!darkbg,
 coltext=white,
 arc=6pt,
 before skip=12pt,after skip=12pt,
@@ -41,4 +41,13 @@ before skip=12pt,after skip=12pt,
 top=0pt,bottom=0pt,
 left=6pt,right=6pt,
 sharp corners
+}
+
+\newcommand\bgpic{
+    \put(0,0){
+    \parbox[b][\paperheight]{\paperwidth}{
+    \vfill
+    \centering
+    \includegraphics[width=\paperwidth,height=\paperheight]{cover_dark.pdf}\vfill
+    }}
 }

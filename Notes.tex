@@ -30,6 +30,10 @@
 
 \usepackage[many]{tcolorbox}
 
+\usepackage{eso-pic}
+
+%----------------------- Set Color, light or dark mode
+
 \definecolor{main}{HTML}{009688} % Main color (light, material teal 500)
 \include{light}
 
@@ -42,24 +46,23 @@
 \setlist[itemize]{label=\textcolor{main}{\textbullet}}
 \setlist[enumerate]{label=\textcolor{main}{\arabic*.}}
 
-\let\oldheadrule\headrule% Copy \headrule into \oldheadrule
-\renewcommand{\headrule}{\color{main}\oldheadrule}% Add colour to \headrule
+\let\oldheadrule\headrule % Copy \headrule into \oldheadrule
+\renewcommand{\headrule}{\color{main}\oldheadrule} % Add color to \headrule
 \renewcommand{\headrulewidth}{0.5pt}
 
 \usepackage{titlesec}
-
 \titleformat{\section}
 {\color{main}\normalfont\Large\bfseries}
 {\color{main}\thesection}{1em}{}
 
 \newtheoremstyle{theoremc} % name
-    {}                    % Space above
-    {}                    % Space below
-    {}                   % Body font \itshape
-    {}                           % Indent amount
-    {\bfseries\color{main}}                   % Theorem head font
-    {.}                          % Punctuation after theorem head
-    {.5em}                       % Space after theorem head
+    {}                     % Space above
+    {}                     % Space below
+    {}                     % Body font \itshape
+    {}                     % Indent amount
+    {\bfseries\color{main}}% Theorem head font
+    {.}                    % Punctuation after theorem head
+    {.5em}                 % Space after theorem head
     {}
 
 \theoremstyle{theoremc}
@@ -104,7 +107,49 @@
 
 \renewcommand{\arraystretch}{1.5}
 
+\makeatletter
+\newcommand\HUGE{\@setfontsize\Huge{50}{60}}
+\makeatother
+
 \begin{document}
+
+\AddToShipoutPicture*{\bgpic}
+
+\begin{titlepage} % Suppresses headers and footers on the title page
+
+    \raggedleft % Right align everything
+    
+    \vspace*{\baselineskip} % Whitespace at the top of the page
+    
+    %------------------------------------------------
+    %   Author
+    %------------------------------------------------
+    
+    {\Large Zach Lucier} % Author name
+    
+    \vspace*{0.167\textheight} % Whitespace before the title
+    
+    %------------------------------------------------
+    %   Title and subtitle
+    %------------------------------------------------
+    
+    \textbf{\color{main}\HUGE STATS 3D03}\\[\baselineskip]
+    \textbf{\color{main}\Huge Course Notes}\\[\baselineskip] 
+    
+    {\Large \textit{McMaster University}}\\[0.5\baselineskip]
+    {\Large \textit{Fall 2022}}
+    
+    %\vfill % Whitespace between the titles and the publisher
+    
+    %------------------------------------------------
+    %   Publisher
+    %------------------------------------------------
+    
+    %{\large The Publisher} % Publisher and logo
+    
+    %\vspace*{3\baselineskip} % Whitespace at the bottom of the page
+
+\end{titlepage}
 
 \include{sections/1review}
 

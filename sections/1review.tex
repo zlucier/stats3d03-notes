@@ -108,7 +108,7 @@ Clearly, $M_X(0)=1$ for any random variable. Not every random variable has a mgf
 	Suppose $X$ is a random variable with mgf $M_X$ and let $M_X^{(m)}(t)=\frac{\mathrm{d}^m}{\dd t^m}M_X(t)$. Then the $m$th moment of $X$ is given by $$E(X^m)=M_X^{(m)}(0).$$
 \end{theorem}
 
-The above theorem should make clear why we call mgfs as such. The proof is reliant on the Taylor expansion of $e^{tX}$. Observe the following.
+The above theorem should make clear why we call mgfs as such. The proof is reliant on the Taylor expansion of $e^{tX}$. We use the linearity of expectation, which will be stated formally in a later section.
 \begin{align*}
 	M_X(t)&=E(e^{tX})\\
 	&=E\left(\sum_{n=0}^\infty \frac{t^n}{n!}X^n\right)\\
