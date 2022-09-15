@@ -23,10 +23,13 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.15}
+\usepgfplotslibrary{fillbetween}
 
 \newcommand{\dd}[1]{\mathop{\mathrm{d}#1}}
 \renewcommand{\vec}[1]{\mathbf{#1}}
 \newcommand{\Var}{\operatorname{Var}}
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\Corr}{\operatorname{Corr}}
 
 \usepackage[many]{tcolorbox}
 
@@ -168,8 +171,9 @@
 
 \include{sections/1review}
 
-\break
+%\break
 
+%\setcounter{section}{1}
 \include{sections/2multivariate}
 
 \end{document}

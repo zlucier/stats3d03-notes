@@ -42,18 +42,18 @@ As in the univariate case, this joint pmf satisfies the following properties.
 
 	\textit{Solution.} Let $\chi$ denote the support of $(X,W)$. It is clear that $\chi=\{1,\hdots,6\}\times\{1,\hdots,6\}$.
 
-	The joint pmf $p_{X,W}$ of $(X,W)$ can be summarized by the following table.
+	The joint pmf $p_{X,W}(x,w)$ of $(X,W)$ can be summarized by the following table.
 
 	\begin{center}
 	%\rowcolors{2}{white}{main!10}
 	\begin{tabular}{c | c c c c c c}
-		$W/X$ & 1 & 2 & 3 & 4 & 5 & 6\\\hline
-		1 & $\frac{1}{36}$ & 0 & 0 & 0 & 0 & 0\\
-		2 & $\frac{1}{36}$ & $\frac{2}{36}$ & 0 & 0 & 0 & 0\\
-		3 & $\frac{1}{36}$ & $\frac{1}{36}$ & $\frac{3}{36}$ & 0 & 0 & 0\\
-		4 & $\frac{1}{36}$ & $\frac{1}{36}$ & $\frac{1}{36}$ & $\frac{4}{36}$ & 0 & 0\\
-		5 & $\frac{1}{36}$ & $\frac{1}{36}$ & $\frac{1}{36}$ & $\frac{1}{36}$ & $\frac{5}{36}$ & 0\\
-		6 & $\frac{1}{36}$ & $\frac{1}{36}$ & $\frac{1}{36}$ & $\frac{1}{36}$ & $\frac{1}{36}$ & $\frac{6}{36}$
+		$p_{X,W}(x,w)$ & $x=1$ & $x=2$ & $x=3$ & $x=4$ & $x=5$ & $x=6$\\\hline
+		$w=1$ & $\frac{1}{36}$ & 0 & 0 & 0 & 0 & 0\\
+		$w=2$ & $\frac{1}{36}$ & $\frac{2}{36}$ & 0 & 0 & 0 & 0\\
+		$w=3$ & $\frac{1}{36}$ & $\frac{1}{36}$ & $\frac{3}{36}$ & 0 & 0 & 0\\
+		$w=4$ & $\frac{1}{36}$ & $\frac{1}{36}$ & $\frac{1}{36}$ & $\frac{4}{36}$ & 0 & 0\\
+		$w=5$ & $\frac{1}{36}$ & $\frac{1}{36}$ & $\frac{1}{36}$ & $\frac{1}{36}$ & $\frac{5}{36}$ & 0\\
+		$w=6$ & $\frac{1}{36}$ & $\frac{1}{36}$ & $\frac{1}{36}$ & $\frac{1}{36}$ & $\frac{1}{36}$ & $\frac{6}{36}$
 	\end{tabular}
 	\end{center}
 
@@ -110,7 +110,7 @@ If $(X_1,X_2)$ is a continuous random vector, then
 	\textit{Solution.} We apply the definition.
 	\begin{center}
 	\begin{tabular}{c | c}
-		$W$ & $p_W(w)$\\ \hline
+		$w$ & $p_W(w)$\\ \hline
 		1 & $\frac{1}{36}$\\
 		2 & $\frac{3}{36}$\\
 		3 & $\frac{5}{36}$\\
@@ -162,7 +162,7 @@ If $(X_1,X_2)$ is a continuous random vector, then
 
 Expectations in the multivariate case are easily extended from the univariate case to random vectors.
 
-\begin{theorem}[Law of the unconscious statistician (multivariate)]
+\begin{theorem}[Law of the unconscious statistician (multivariate)]\label{thm:lotus2}
 	Let $(X_1,X_2)$ be a random vector and let $Y=g(X_1,X_2)$ for some real-valued function $g$. Then $Y$ is a random variable and we have the following.
 	\begin{enumerate}[label=\color{main}(\alph*)]
 		\item Suppose $(X_1,X_2)$ is discrete with pmf $p_{X_1,X_2}(x_1,x_2)$. If $$\sum_{x_1}\sum_{x_2}|g(x_1,x_2)|p_{X_1,X_2}(x_1,x_2)$$ is finite, then the expectation of $Y$ exists and is given by $$E(Y)=\sum_{x_1}\sum_{x_2}g(x_1,x_2)p_{X_1,X_2}(x_1,x_2).$$
@@ -170,10 +170,12 @@ Expectations in the multivariate case are easily extended from the univariate ca
 	\end{enumerate}
 \end{theorem}
 
-We can now that expectation is a linear operator.
+We often abbreviate this theorem LOTUS.
+
+We can now show that expectation is a linear operator.
 
 \begin{theorem}[Linearity of expectation]
-	Let $(X_1,X_2)$ be a random vector and let $Y_1=g_1(X_1,X_2)$ and $Y_2=g_2(X_1,X_2)$ be random variables for some real-valued functions $g_1$ and $g_2$. Suppose that both $E(Y_1)$ and $E(Y_2)$ exist. Then for all $k_1,k_2\in\mathbb R$,
+	Let $(X_1,X_2)$ be a random vector and let $Y_1=g_1(X_1,X_2)$ and $Y_2=g_2(X_1,X_2)$ be random variables for some real-valued functions $g_1$ and $g_2$. Suppose that both $E(Y_1)$ and $E(Y_2)$ exist. Then for any $k_1,k_2\in\mathbb R$,
 	$$E(k_1Y_1+k_2Y_2)=k_1E(Y_1)+k_2E(Y_2).$$
 \end{theorem}
 
@@ -193,3 +195,266 @@ We can now that expectation is a linear operator.
 		&=k_1E(Y_1)+k_2E(Y_2)
 	\end{align*}
 \end{proof}
+
+\begin{example}[]
+	Consider the random vector $(X,Y)$ with joint pmf $p_{X,Y}(x,y)$ defined as follows.
+
+	\begin{center}
+	\begin{tabular}{c | c c c}
+		$p_{X,Y}(x,y)$ & $y=1$ & $y=2$ & $y=3$\\ \hline
+		$x=0$ & $\frac{1}{18}$ & $\frac{1}{9}$ & $\frac{1}{18}$\\
+		$x=1$ & $\frac{1}{9}$ & $\frac{1}{9}$ & $\frac{1}{18}$\\
+		$x=2$ & $\frac{2}{9}$ & $\frac{1}{18}$ & $\frac{2}{9}$
+	\end{tabular}
+	\end{center}
+
+	Find $E(XY)$.
+
+	\textit{Solution.} Let $g(X,Y)=XY$. We use Theorem \ref{thm:lotus2} (LOTUS).
+	\begin{align*}
+		E(X,Y)&=\sum_{x}\sum_{y}xyp_{X,Y}(xy)\\
+		&=(0)(1)\frac{1}{18}+(0)(2)\frac{1}{9}+(0)(3)\frac{1}{18}\\
+		&\quad +(1)(1)\frac{1}{9}+(1)(2)\frac{1}{9}+(1)(3)\frac{1}{18}\\
+		&\quad +(2)(1)\frac{2}{9}+(2)(2)\frac{1}{18}+(2)(3)\frac{9}{9}\\
+		&=\frac{45}{18}
+	\end{align*}
+\end{example}
+
+\begin{example}[]
+	From a previous example, let $$f_{X,Y}(x,y)=\begin{cases}
+		\frac 32xy^2 & \text{if } 0\leq x\leq 2,0\leq y\leq 1\\
+		0 & \text{otherwise}
+	\end{cases}.$$
+
+	Find $E(XY)$
+
+	\textit{Solution.}
+
+	\begin{align*}
+		E(XY)&=\int_0^1\int_0^2(xy)\frac 32xy^2\dd x\dd y\\
+		&=\frac 32\int_0^1y^3\int_0^2x^2\dd x\dd y\\
+		&=\frac 32\int_0^1y^3\frac 83\dd y\\
+		&=4\int_0^1y^3\dd y\\
+		&=4\cdot\frac 14\\
+		&=1
+	\end{align*}
+\end{example}
+
+\subsection{Joint measures}
+
+For an event $B$ in the support of the discrete random vector $(X,Y)$ with pmf $p_{X,Y}$,
+$$P((X,Y)\in B)=\sum_{(x,y)\in B}p_{X,Y}(x,y).$$
+
+For an event $A$ in the support of the continuous random vector $(X,Y)$ with pdf $f_{X,Y}$,
+$$P((X,Y)\in A)=\iint_Af_{X,Y}(x,y)\dd x\dd y.$$
+
+\begin{example}[]
+	We have $$f_{X,Y}(x,y)=\begin{cases}
+		\frac 32xy^2 & \text{if } 0\leq x\leq 2,0\leq y\leq 1\\
+		0 & \text{otherwise}
+	\end{cases}.$$
+	Find $P(X+Y\leq 2)$.
+
+	\textit{Solution.} Let $A$ denote the event $X+Y\leq 2$. Then
+	\begin{align*}
+		P((X,Y)\in A)=\int\int_A\frac 32xy^2\dd y\dd x.
+	\end{align*}
+
+	The support of $(X,Y)$ is $\chi=\{(x,y):0\leq x\leq 2,0\leq y\leq 1\}$ and the set of points under and on the line $X+Y=2$ is $\{(x,y):0\leq x\leq 2,0\leq y\leq 2-x\}$. As such, $A$ is the intersection of these sets. We illustrate these sets in the following plot.
+
+	\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[
+	axis lines=center,
+	axis line style = thick,
+	xmin=0,
+	xmax=2.25,
+	ymin=0,
+	ymax=2.25,
+	xtick={0,1,2},
+	ytick={0,1,2},
+	tick style={thick},
+	xlabel={$X$},
+	ylabel={$Y$},
+	xlabel style={right},
+	ylabel style={above},
+	grid=both,
+	minor tick num=3,
+	grid style={line width=.2pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+    scale=0.75
+	%axis equal
+	]
+	\path[name path=axis] (axis cs:0,0) -- (axis cs:2,0);
+	\path[name path=y1] (0,1) -- (2,1);
+
+	\node at (1.5,1.25) {\color{indigo}$\chi$};
+
+	 \addplot[
+        thick,
+        color=indigo,
+        fill opacity=0.2]
+    fill between[
+        of=y1 and axis,
+        soft clip={domain=0:2},
+    ];
+
+    \addplot[name path=f,domain=0:2,main,thick] {2-x};
+
+	\addplot[
+        thick,
+        %color=blue,
+        fill=main, 
+        fill opacity=0.2]
+    fill between[
+        of=f and axis,
+        soft clip={domain=0:2},
+    ];
+
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	We can write $A$ as a disjoint union $A=A_1\cup A_2$, as shown in the following plot.
+
+	\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[
+	axis lines=center,
+	axis line style = thick,
+	xmin=0,
+	xmax=2.25,
+	ymin=0,
+	ymax=2.25,
+	xtick={0,1,2},
+	ytick={0,1,2},
+	tick style={thick},
+	xlabel={$X$},
+	ylabel={$Y$},
+	xlabel style={right},
+	ylabel style={above},
+	grid=both,
+	minor tick num=3,
+	grid style={line width=.2pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+    scale=0.75
+	%axis equal
+	]
+	\path[name path=axis] (axis cs:0,0) -- (axis cs:2,0);
+	\path[name path=y1] (0,1) -- (2,1);
+
+	 \addplot[
+        color=pink,
+        fill opacity=0.2]
+    fill between[
+        of=y1 and axis,
+        soft clip={domain=0:1},
+    ];
+
+    \addplot[name path=f,domain=0:2,main,thick] {2-x};
+
+	\addplot[
+        color=green,
+        fill opacity=0.2]
+    fill between[
+        of=f and axis,
+        soft clip={domain=1:2},
+    ];
+
+    \node at (0.5,0.5) {\color{pink}$A_1$};
+    \node at (1.35,0.35) {\color{green}$A_2$};
+
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+
+	We see that $A_1=\{(x,y):0\leq x\leq y\leq 1\}$ and $A_2=\{(x,y):1\leq x\leq 2,0\leq y\leq 2-x\}$. So we can compute the required probability as follows.
+
+	$$P((X,Y)\in A)=\iint_Af_{X,Y}(x,y)\dd y\dd x=\iint_{A_1}f_{X,Y}(x,y)\dd y\dd x+\iint_{A_2}f_{X,Y}(x,y)\dd y\dd x$$
+
+	We solve each integral.
+
+	\begin{align*}
+	\iint_{A_1}f_{X,Y}(x,y)\dd y\dd x&=\int_0^1\int_0^1\frac 32xy^2\dd y\dd x\\
+		&=\frac 32\int_0^1x\int_0^1y^2\dd y\dd x\\
+		&=\frac 32\int_0^1x\frac 13\dd x\\
+		&=\frac 12\int_0^1x\dd x\\
+		&=\frac 12\cdot\frac 12\\
+		&=\frac 14
+	\end{align*}
+
+	\begin{align*}
+		\iint_{A_2}f_{X,Y}(x,y)\dd y\dd x&=\int_1^2\int_{0}^{2-x}\frac 32xy^2\dd y\dd x\\
+		&=\frac 32\int_1^2x\int_{0}^{2-x}y^2\dd y\dd x\\
+		&=\frac 32\int_1^2x\frac{(2-x)^3}{3}\dd y\dd x\\
+		&=\frac 12\int_1^2x (2-x)^3\dd y\dd x\\
+		&=\frac 12\int_1^2-x^4+6x^3-12x^2+8x\dd x\\
+		&=\frac 12\cdot\frac 3{10}\\
+		&=\frac 3{20}
+	\end{align*}
+
+	Adding the two integrals, $P(X+Y\leq 2)=\frac 14+\frac 3{20}=\frac 8{20}$.
+\end{example}
+
+\begin{definition}[covariance]
+	Suppose $(X,Y)$ is a random vector and that $E(X)$ and $E(Y)$ exist. The \textbf{covariance} of $(X,Y)$, denoted $\Cov(X,Y)$, is defined by the expectation
+
+	$$\Cov(X,Y)=E((X-E(X))(Y-E(Y))).$$
+\end{definition}
+
+We may obtain a computationally favourable formulation of covariance using the linearity of expectation.
+\begin{align*}
+	\Cov(X,Y)&=E((X-E(X))(Y-E(Y)))\\
+	&=E(XY-E(Y)X-E(X)Y+E(X)E(Y))\\
+	&=E(XY)-E(Y)E(X)-E(X)E(Y)+E(X)E(Y)\\
+	&=E(XY)-E(X)E(Y)
+\end{align*}
+
+We may call $E(XY)$ the \textbf{product moment}.
+
+When we say \textit{computationally favourable}, we mean that this formulation is useful for computing covariance by hand. It is actually the case that this formulation is numerically unstable and should thus be avoided in computer programs.
+
+Observe that if $E(XY)>E(X)E(Y)$, then $\Cov(X,Y)>0$. In this case, we say that $X$ and $Y$ are \textbf{positively associated}.
+
+Now observe that if $E(XY)<E(X)E(Y)$, then $\Cov(X,Y)<0$. In this case, we say that $X$ and $Y$ are \textbf{negatively associated}.
+
+In the case that $E(XY)=E(X)E(Y)$, then $\Cov(X,Y)=0$. In this case, we say that $X$ and $Y$ are \textbf{not associated}.
+
+We may ask: ``Can covariance tell us how closely two random variables are related?'' The answer to this question is no. The measure of covariance is \textit{not} invariant to scale.
+
+Suppose we would like to compute $\Cov(aX,bY)$ for $a,b\in\mathbb R$. By the linearity of expectation, we find the following.
+
+\begin{align*}
+	\Cov(aX,bY)&=E((aX)(bY))-E(aX)E(bY)\\
+	&=ab(E(XY)-E(X)E(Y))\\
+	&=ab\Cov(X,Y)
+\end{align*}
+
+As such, we would like a measure of association between random variables that remains invariant under scaling. This measure is correlation.
+
+\begin{definition}[correlation coefficient]
+	Suppose $(X,Y)$ has a joint distribution. The \textbf{correlation coefficient} between $X$ and $Y$, denoted $\Corr(X,Y)$, is defined by
+
+	$$\Corr(X,Y)=\frac{\Cov(X,Y)}{\sqrt{\Var(X)\Var(Y)}}.$$
+\end{definition}
+
+We may also use $\rho_{X,Y}$ or simply $\rho$ to denote the correlation coefficient.
+
+\begin{theorem}[]
+	For all jointly distributed random variables $(X,Y)$ where $\Corr(X,Y)$ exists, $-1\leq\Corr(X,Y)\leq 1$.
+\end{theorem}
+
+THIS ENDS MATERIAL COVERED IN LECTURE. THE FOLLOWING HAS BEEN TYPESET TENTATIVELY.
+
+\subsection{Conditional distributions}
+
+\begin{definition}[conditional pmf]
+	Let $X_1$ and $X_2$ be discrete random variables with joint pmf $p_{X_1,X_2}$. Let $p_{X_1}$ and $p_{X_2}$ denote the marginal pmfs of $X_1$ and $X_2$, respectively. Suppose $x_1$ is such that $p_{X_1}(x_1)>0$. The \textbf{conditional pmf} of $X_2$ given that $X_1=x_1$ is defined by
+	$$p_{X_2|X_1}(x_2|x_1)=\frac{p_{X_1,X_2}(x_1,x_2)}{p_{X_1}(x_1)}$$
+	where $x_2$ is in the support of $X_2$.
+\end{definition}
+
+\begin{definition}[conditional pdf]
+	Let $X_1$ and $X_2$ be continuous random variables with joint pdf $f_{X_1,X_2}$. Let $f_{X_1}$ and $f_{X_2}$ denote the marginal pdfs of $X_1$ and $X_2$, respectively. Suppose $x_1$ is such that $f_{X_1}(x_1)>0$. The \textbf{conditional pdf} of $X_2$ given that $X_1=x_1$ is defined by
+	$$f_{X_2|X_1}(x_2|x_1)=\frac{f_{X_1,X_2}(x_1,x_2)}{f_{X_1}(x_1)}$$
+	where $x_2$ is in the support of $X_2$.
+\end{definition}
