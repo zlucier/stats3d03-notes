@@ -7,6 +7,8 @@ We will often want to deal with more than one variable based on the same random 
 	Consider a random experiment with sample space $\Omega$. Let $X_1,X_2:\Omega\to\mathbb R$ be random variables. We say that $(X_1,X_2)$ is a \textbf{random vector}. The support of $(X_1,X_2)$ is the set of ordered pairs $\chi=\{(x_1,x_2):X_1(\omega)=x_1,X_2(\omega)=x_2,\omega\in \Omega\}$.
 \end{definition}
 
+\subsection{Joint distributions}
+
 Of particular interest are events of the form $(X_1\leq x_1)\cap(X_2\leq x_2)$ for $(x_1,x_2)\in\mathbb R^2$.
 
 \begin{definition}[joint cdf]
@@ -128,7 +130,7 @@ If $(X_1,X_2)$ is a continuous random vector, then
 	\end{cases}$$
 	We would like to find the value of $c$ such that $f_{X,Y}$ is a valid pdf. We would then like to find the marginal pdfs.
 
-	For $f_{X,Y}$ to be valid, we require it to be non-negative and it must integrate to 1. The second property will be used to determine $c$.
+	\textit{Solution.} For $f_{X,Y}$ to be valid, we require it to be non-negative and it must integrate to 1. The second property will be used to determine $c$.
 
 	\begin{align*}
 		\int_0^1\int_0^2 cxy^2\dd x\dd y & =1\\
@@ -155,6 +157,8 @@ If $(X_1,X_2)$ is a continuous random vector, then
 
 	We leave the marginal pdf of $Y$ as an exercise.
 \end{example}
+
+\subsection{Expectation}
 
 Expectations in the multivariate case are easily extended from the univariate case to random vectors.
 

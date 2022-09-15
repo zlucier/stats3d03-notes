@@ -3,6 +3,8 @@
 
 We begin our discussion of mathematical statistics with a review of concepts from previous courses. One of these key concepts is that of probability.
 
+\subsection{Probability}
+
 Recall that a \textbf{sample space} $\Omega$ is the set of all possible outcomes of an experiment. Subsets of $\Omega$ are called \textbf{events} and the collection of all events is denoted by $\mathcal F$.
 
 \begin{definition}[probability set function]
@@ -48,6 +50,8 @@ The pmf of a discrete random variable and the pdf of a continuous random variabl
 $$F_X(x)=P(X\leq x).$$
 \end{definition}
 
+\subsection{Expectation}
+
 One of the most important measures associated with random variables is that of expectation.
 
 \begin{definition}[expectation]
@@ -77,13 +81,20 @@ Sometimes the expectation $E(X)$ is called the \textbf{expected value} of $X$ or
 An important application of the above theorem shows that expectation is \textit{linear}. That is, $E(aX+b)=aE(X)+b$. It is a useful exercise to show that this is the case. Furthermore, this property can be generalized for $a_1,\hdots,a_k$ real numbers and $g_1,\hdots,g_k$ real-valued functions.
 $$E(a_1g_1(X)+\cdots+a_kg_k(X))=a_1E(g_1(X))+\cdots+a_kE(g_k(X))$$
 
+\subsection{Moments}
+
 Expectation allows us to define a countably infinite number of measures associated with random variables, called moments.
 
 \begin{definition}[moment]
 	Suppose $X$ is a random variable and $m$ is a positive integer. The \textbf{$m$th moment} of $X$ is defined to be $E(X^m)$, provided this expectation exists.
 \end{definition}
 
-As such, the first moment of a random variable is simply its \textbf{mean} $\mu$. It is often useful to think about moments about the mean $E((X-\mu)^m)$. We call these \textbf{central moments}. The second central moment should be familiar to you as the \textbf{variance} $\sigma^2$. We call the third central moment the \textbf{skewness} and call the fourth central moment the \textbf{kurtosis}.
+As such, the first moment of a random variable is simply its \textbf{mean} $\mu$. It is often useful to think about moments about the mean $E((X-\mu)^m)$. We call these \textbf{central moments}.
+
+The second central moment should be familiar to you as the \textbf{variance} $\sigma^2$. It has the following equivalent formulation which is computationally useful. $$\Var(X)=E(X^2)-E(X)^2$$
+This can be found using the linearity of expectation.
+
+We call the third central moment the \textbf{skewness} and call the fourth central moment the \textbf{kurtosis}.
 
 \begin{definition}[mgf]
 	Let $X$ be a random variable such that for some $h>0$, the expectation of $e^{tX}$ exists for $-h<t<h$. The \textbf{moment generating function} (mgf) of $X$ is defined to be the function $M_X(t)=E(e^{tX})$ for $-h<t<h$.
@@ -114,6 +125,8 @@ The above theorem should make clear why we call mgfs as such. The proof is relia
 	&=E\left(\sum_{n=0}^\infty \frac{t^n}{n!}X^n\right)\\
 	&=\sum_{n=0}^\infty \frac{t^n}{n!}E(X^n)
 \end{align*}
+
+\subsection{Distributions}
 
 We reintroduce some special distributions, starting with those of the discrete kind.
 

@@ -40,6 +40,8 @@
 %\definecolor{main}{HTML}{80CBC4} % Main color (dark, material teal 200)
 %\include{dark} % dark mode
 
+\usepackage[hidelinks]{hyperref}
+
 \renewcommand*{\proofname}{\color{main}Proof}
 \renewcommand\qedsymbol{\color{main}$\blacksquare$}
 
@@ -52,8 +54,12 @@
 
 \usepackage{titlesec}
 \titleformat{\section}
-{\color{main}\normalfont\Large\bfseries}
+{\color{main}\normalfont\LARGE\bfseries}
 {\color{main}\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\color{main}\normalfont\large\bfseries}
+{\color{main}\thesubsection}{1em}{}
 
 \newtheoremstyle{theoremc} % name
     {}                     % Space above
@@ -125,7 +131,7 @@
     %   Author
     %------------------------------------------------
     
-    {\Large Zach Lucier} % Author name
+    {\Large Dr. Katherine Davies} % Author name
     
     \vspace*{0.167\textheight} % Whitespace before the title
     
@@ -134,10 +140,16 @@
     %------------------------------------------------
     
     \textbf{\color{main}\HUGE STATS 3D03}\\[\baselineskip]
-    \textbf{\color{main}\Huge Course Notes}\\[\baselineskip] 
+    \textbf{\color{main}\Huge Course Notes}\\[\baselineskip]
+
+    {\Large Recorded and adapted by Zachary Lucier}\\[1.5\baselineskip]
     
     {\Large \textit{McMaster University}}\\[0.5\baselineskip]
     {\Large \textit{Fall 2022}}
+
+    \vspace*{0.167\textheight}
+
+    Last updated \today
     
     %\vfill % Whitespace between the titles and the publisher
     
@@ -150,6 +162,9 @@
     %\vspace*{3\baselineskip} % Whitespace at the bottom of the page
 
 \end{titlepage}
+
+\rhead{\color{main} Contents}
+\tableofcontents
 
 \include{sections/1review}
 
