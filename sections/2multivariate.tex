@@ -37,7 +37,7 @@ As in the univariate case, this joint pmf satisfies the following properties.
 	\item $\sum_{(x_1,x_2)\in\chi}p_{X_1,X_2}(x_1,x_2)=1$.
 \end{enumerate}
 
-\begin{example}[]
+\begin{example}[]\label{ex:dice_jointpmf}
 	Suppose two dice are rolled. Let $X$ denote the number of dots facing up on the first die and $Y$ the number of dots on the second die. Also, let $W=\max(X,Y)$. We would like to find the joint pmf of the random vector $(X,W)$ and the probability that $X=W$.
 
 	\textit{Solution.} Let $\chi$ denote the support of $(X,W)$. It is clear that $\chi=\{1,\hdots,6\}\times\{1,\hdots,6\}$.
@@ -85,7 +85,7 @@ Often times, we will want to obtain the distributions of the random variables $X
 
 Given the above setup, we may obtain the \textbf{marginal cdf} of $X_1$ from the following equivalent formulations.
 \begin{align*}
-	F_{X_1}&=P(X_1\leq x_1)\\
+	F_{X_1}(x_1)&=P(X_1\leq x_1)\\
 	&=P(X_1\leq x_1,-\infty<X_2<\infty)\\
 	&=\lim_{x_2\to\infty}P(X_1\leq x_1,X_2\leq x_2)\\
 	&=\lim_{x_2\to\infty} F_{X_1,X_2}(x_1,x_2)
@@ -104,8 +104,8 @@ If $(X_1,X_2)$ is a continuous random vector, then
 	f_{X_1}(x_1)&=\int_{-\infty}^{\infty}f_{X_1,X_2}(x_1,x_2)\dd{x_2}\\
 \end{align*}
 
-\begin{example}[]
-	We revisit the previous example. We would like to find the marginal pmf of $W$.
+\begin{example}[]\label{ex:dice_marginalpmf}
+	We revisit the setup of Example \ref{ex:dice_jointpmf}. We would like to find the marginal pmf of $W$.
 
 	\textit{Solution.} We apply the definition.
 	\begin{center}
@@ -119,10 +119,15 @@ If $(X_1,X_2)$ is a continuous random vector, then
 		6 & $\frac{11}{36}$
 	\end{tabular}
 	\end{center}
+
+	We may write $$p_W(w)=\begin{cases}
+		\frac{2w-1}{36} & \text{if $w=1,\hdots, 6$}\\
+		0 & \text{otherwise}
+	\end{cases}.$$
 \end{example}
 
 
-\begin{example}[]
+\begin{example}[]\label{ex:jointpdf_cxy}
 	Consider the joint pdf of $(X,Y)$ to be
 	$$f_{X,Y}(x,y)=\begin{cases}
 		cxy^2 & \text{for $0\leq x\leq 2,0\leq y\leq 1$}\\
@@ -153,9 +158,18 @@ If $(X_1,X_2)$ is a continuous random vector, then
 	So $f_X(x)=\begin{cases}
 		\frac x 2 & \text{for $0\leq x\leq 2$}\\
 		0 & \text{otherwise}
-	\end{cases}$
+	\end{cases}$.
 
-	We leave the marginal pdf of $Y$ as an exercise.
+	\begin{align*}
+		f_Y(y)&=\int_0^2\frac 32xy^2\dd x\\
+		&=\frac 32y^2\int_0^1x\dd y\\
+		&=\frac{3y^2}4
+	\end{align*}
+
+	So $f_Y(x)=\begin{cases}
+		\frac{3y^2}4 & \text{for $0\leq y\leq 1$}\\
+		0 & \text{otherwise}
+	\end{cases}$.
 \end{example}
 
 \subsection{Expectation}
@@ -220,13 +234,8 @@ We can now show that expectation is a linear operator.
 	\end{align*}
 \end{example}
 
-\begin{example}[]
-	From a previous example, let $$f_{X,Y}(x,y)=\begin{cases}
-		\frac 32xy^2 & \text{if } 0\leq x\leq 2,0\leq y\leq 1\\
-		0 & \text{otherwise}
-	\end{cases}.$$
-
-	Find $E(XY)$
+\begin{example}[]\label{ex:jointpdf_E(XY)}
+	Recall the setup of Example \ref{ex:jointpdf_cxy}. Find $E(XY)$.
 
 	\textit{Solution.}
 
@@ -249,39 +258,28 @@ For an event $A$ in the support of the continuous random vector $(X,Y)$ with pdf
 $$P((X,Y)\in A)=\iint_Af_{X,Y}(x,y)\dd x\dd y.$$
 
 \begin{example}[]
-	We have $$f_{X,Y}(x,y)=\begin{cases}
-		\frac 32xy^2 & \text{if } 0\leq x\leq 2,0\leq y\leq 1\\
-		0 & \text{otherwise}
-	\end{cases}.$$
-	Find $P(X+Y\leq 2)$.
+	Recall the setup of Example \ref{ex:jointpdf_cxy}. Find $P(X+Y\leq 2)$.
 
 	\textit{Solution.} Let $A$ denote the event $X+Y\leq 2$. Then
 	\begin{align*}
 		P((X,Y)\in A)=\int\int_A\frac 32xy^2\dd y\dd x.
 	\end{align*}
 
-	The support of $(X,Y)$ is $\chi=\{(x,y):0\leq x\leq 2,0\leq y\leq 1\}$ and the set of points under and on the line $X+Y=2$ is $\{(x,y):0\leq x\leq 2,0\leq y\leq 2-x\}$. As such, $A$ is the intersection of these sets. We illustrate these sets in the following plot.
+
+	The support of $(X,Y)$ is $\chi=\{(x,y):0\leq x\leq 2,0\leq y\leq 1\}$ and the set of points under and on the line $X+Y=2$ is $\{(x,y)\in\mathbb R^2:y\leq 2-x\}$. As such, $A$ is the intersection of these sets and, notably, $A=\{(x,y)\in\chi:y\leq 2-x\}$. We illustrate these sets in the following plot.
 
 	\begin{center}
 	\begin{tikzpicture}
 	\begin{axis}[
-	axis lines=center,
-	axis line style = thick,
+	GridPlot1,
 	xmin=0,
 	xmax=2.25,
 	ymin=0,
 	ymax=2.25,
 	xtick={0,1,2},
 	ytick={0,1,2},
-	tick style={thick},
 	xlabel={$X$},
 	ylabel={$Y$},
-	xlabel style={right},
-	ylabel style={above},
-	grid=both,
-	minor tick num=3,
-	grid style={line width=.2pt, draw=gray!10},
-    major grid style={line width=.2pt,draw=gray!50},
     scale=0.75
 	%axis equal
 	]
@@ -319,23 +317,15 @@ $$P((X,Y)\in A)=\iint_Af_{X,Y}(x,y)\dd x\dd y.$$
 	\begin{center}
 	\begin{tikzpicture}
 	\begin{axis}[
-	axis lines=center,
-	axis line style = thick,
+	GridPlot1,
 	xmin=0,
 	xmax=2.25,
 	ymin=0,
 	ymax=2.25,
 	xtick={0,1,2},
 	ytick={0,1,2},
-	tick style={thick},
 	xlabel={$X$},
 	ylabel={$Y$},
-	xlabel style={right},
-	ylabel style={above},
-	grid=both,
-	minor tick num=3,
-	grid style={line width=.2pt, draw=gray!10},
-    major grid style={line width=.2pt,draw=gray!50},
     scale=0.75
 	%axis equal
 	]
@@ -409,7 +399,7 @@ We may obtain a computationally favourable formulation of covariance using the l
 	&=E(XY)-E(X)E(Y)
 \end{align*}
 
-We may call $E(XY)$ the \textbf{product moment}.
+We may call $E(XY)$ the \textbf{product moment} of $X$ and $Y$.
 
 When we say \textit{computationally favourable}, we mean that this formulation is useful for computing covariance by hand. It is actually the case that this formulation is numerically unstable and should thus be avoided in computer programs.
 
@@ -422,7 +412,6 @@ In the case that $E(XY)=E(X)E(Y)$, then $\Cov(X,Y)=0$. In this case, we say that
 We may ask: ``Can covariance tell us how closely two random variables are related?'' The answer to this question is no. The measure of covariance is \textit{not} invariant to scale.
 
 Suppose we would like to compute $\Cov(aX,bY)$ for $a,b\in\mathbb R$. By the linearity of expectation, we find the following.
-
 \begin{align*}
 	\Cov(aX,bY)&=E((aX)(bY))-E(aX)E(bY)\\
 	&=ab(E(XY)-E(X)E(Y))\\
@@ -432,7 +421,7 @@ Suppose we would like to compute $\Cov(aX,bY)$ for $a,b\in\mathbb R$. By the lin
 As such, we would like a measure of association between random variables that remains invariant under scaling. This measure is correlation.
 
 \begin{definition}[correlation coefficient]
-	Suppose $(X,Y)$ has a joint distribution. The \textbf{correlation coefficient} between $X$ and $Y$, denoted $\Corr(X,Y)$, is defined by
+	Suppose that $(X,Y)$ is a random vector with covariance $\Cov(X,Y)$. Then the \textbf{correlation coefficient} between $X$ and $Y$, denoted $\Corr(X,Y)$, is defined by
 
 	$$\Corr(X,Y)=\frac{\Cov(X,Y)}{\sqrt{\Var(X)\Var(Y)}}.$$
 \end{definition}
@@ -440,10 +429,145 @@ As such, we would like a measure of association between random variables that re
 We may also use $\rho_{X,Y}$ or simply $\rho$ to denote the correlation coefficient.
 
 \begin{theorem}[]
+	For all jointly distributed random variables $(X,Y)$ where $\Corr(X,Y)$ exists, $\Corr(aX+b,cY+d)=\sgn(ac)\Corr(X,Y)$ for any scalars $a,b,c,d\in\mathbb R$.
+\end{theorem}
+
+\begin{proof}
+	Recall the definition of the correlation coefficient. $$\Corr(X,Y)=\frac{\Cov(X,Y)}{\sqrt{\Var(X)\Var(Y)}}$$
+
+	We compute $\Cov(aX+b,cY+d)$ using the linearity of expectation.
+
+	\begin{align*}
+		\Cov(aX+b,cY+d)&=E((aX+b)(cY+d))-E(aX+b)E(cY+d)\\
+		&=E(acXY+adX+bcY+bd)-E(aX+b)E(cY+d)\\
+		&=acE(XY)+adE(X)+bcE(Y)+bd-(aE(X)+b)(cE(Y)+d)\\
+		&=acE(XY)+adE(X)+bcE(Y)+bd-acE(X)E(Y)-adE(X)-bcE(Y)-bd\\
+		&=acE(XY)-acE(X)E(Y)\\
+		&=ac(E(XY)-E(X)E(Y))\\
+		&=ac\Cov(X,Y)
+	\end{align*}
+
+	We have that $\Var(aX+b)=a^2\Var(X)$ and $\Var(cY+d)=c^2\Var(Y)$. We substitute these into the definition of the correlation coefficient.
+
+	\begin{align*}
+		\Corr(aX+b,cY+d)&=\frac{\Cov(aX+b,cY+d)}{\sqrt{\Var(aX+b)\Var(cY+d)}}\\
+		&=\frac{ac\Cov(X,Y)}{\sqrt{a^2\Var(X)c^2\Var(Y)}}\\
+		&=\frac{ac\Cov(X,Y)}{|ac|\sqrt{\Var(X)\Var(Y)}}\\
+		&=\sgn(ac)\frac{\Cov(X,Y)}{\sqrt{\Var(X)\Var(Y)}}\\
+		&=\sgn(ac)\Corr(X,Y)
+	\end{align*}
+\end{proof}
+
+\begin{theorem}[]
+	Let $(X,Y)$ be a random vector. Then $\Corr(X,Y)=0$ if and only if $\Cov(X,Y)=0$.
+\end{theorem}
+
+\begin{theorem}[]
 	For all jointly distributed random variables $(X,Y)$ where $\Corr(X,Y)$ exists, $-1\leq\Corr(X,Y)\leq 1$.
 \end{theorem}
 
-THIS ENDS MATERIAL COVERED IN LECTURE. THE FOLLOWING HAS BEEN TYPESET TENTATIVELY.
+\begin{proof}
+	We prove the discrete case. That is, when $(X,Y)$ is a discrete random vector.
+
+	Recall the Cauchy-Schwarz inequality:
+	$$\left|\sum_{i=1}^na_ib_i\right|\leq\left(\sum_{i=1}^n{a_i}^2\right)^{\frac 12}\left(\sum_{i=1}^n{b_i}^2\right)^{\frac 12}$$
+
+	Consider the following.
+
+	\begin{align*}
+		|\Cov(X,Y)|&=\left|\sum(x-E(X))(y-E(Y))p_{X,Y}(xy)\right|\\
+		\intertext{Let $a_i=(x-E(X))\sqrt{p_{X,Y}(xy)}$ and $b_i=(y-E(Y))\sqrt{p_{X,Y}(xy)}$.}
+		&=\left|\sum a_ib_i\right|\\
+		\intertext{We use Cauchy-Schwarz.}
+		&\leq\left(\sum a_i^2\right)^{\frac 12}\left(\sum b_i^2\right)^{\frac 12}\\
+		&=\left(\sum (x-E(X))^2p_{X,Y}(xy)\right)^{\frac 12}\left(\sum (y-E(Y))^2p_{X,Y}(xy)\right)^{\frac 12}\\
+		&=\sqrt{\Var(X)\Var(Y)}
+	\end{align*}
+
+	So we have that $|\Cov(X,Y)|\leq \sqrt{\Var(X)\Var(Y)}$. That is,
+	$$\left|\frac{\Cov(X,Y)}{\sqrt{\Var(X)\Var(Y)}}\right|=|\Corr(X,Y)|\leq 1$$
+\end{proof}
+
+\begin{example}[]
+	Consider the set up of Example \ref{ex:dice_jointpmf}. Find $\Cov(X,W)$ and $\Corr(X,W)$.
+	\textit{Solution.} Recall that $\Cov(X,W)=E(XW)-E(X)E(W)$.
+	Recall that the marginal pmf of $W$ from Example \ref{ex:dice_marginalpmf} is $$p_W(w)=\begin{cases}
+		\frac{2w-1}{36} & \text{if $w=1,\hdots, 6$}\\
+		0 & \text{otherwise}
+	\end{cases}.$$
+
+	We also have that the marginal pmf of $X$ is $$p_X(x)=\begin{cases}
+		\frac 16 & \text{if $x=1,\hdots, 6$}\\
+		0 & \text{otherwise}\end{cases}.$$
+
+	We compute $E(X)$ and $E(W)$.
+
+	\begin{align*}
+		E(X)&=\sum_xxp_X(x)\\
+		&=\sum_{x=1}^6x\frac 16\\
+		&=\frac 16+\frac 26+\cdots+\frac 66\\
+		&=\frac{21}6\\
+		&=\frac 72
+	\end{align*}
+
+	\begin{align*}
+		E(W)&=\sum_wwp_W(w)\\
+		&=\sum_{w=1}^6w\frac{2w-1}{36}\\
+		&=(1)\frac{1}{36}+(2)\frac{3}{36}+\cdots+(6)\frac{11}{36}\\
+		&=\frac{161}{36}
+	\end{align*}
+
+	We find the product moment of $X$ and $W$ using the joint pmf $p_{X,W}$ defined in Example \ref{ex:dice_jointpmf}.
+	\begin{align*}
+		E(XW)&=\mathop{\sum\sum}_{(x,w)}xwp_{X,W}(x,w)\\
+		&=\sum_{x=1}^6x\sum_{w=1}^6wp_{X,W}(x,w)\\
+		&=\frac{154}{9}
+	\end{align*}
+
+	We now see the following.
+	\begin{align*}
+		\Cov(X,W)&=E(XW)-E(X)E(W)\\
+		&=\frac{154}{9}-\frac 72\cdot\frac{161}{36}\\
+		&=\frac{105}{72}
+	\end{align*}
+
+	Recall that $\Corr(X,W)=\frac{\Cov(X,W)}{\sqrt{\Var(X)\Var(W)}}$.
+
+	We compute $\Var(X)$ and $\Var(W)$.
+
+	\begin{align*}
+		\Var(X)&=E(X^2)-E(X)^2\\
+		&=\sum_xx^2p_X(x)-E(X)^2\\
+		&=\sum_{x=1}^6\frac{x^2}{6}-E(X)^2\\
+		&=\frac{1^2}{6}+\frac{2^2}{6}+\cdots+\frac{6^2}{6}-\left(\frac 72\right)^2\\
+		&=\frac{105}{36}\\
+		&=\frac{35}{12}
+	\end{align*}
+
+	\begin{align*}
+		\Var(W)&=E(W^2)-E(W)^2\\
+		&=\sum_ww^2p_W(w)-E(W)^2\\
+		&=\sum_{w=1}^6w^2\frac{2w-1}{36}-E(V)^2\\
+		&=1^2\cdot\frac{1}{36}+2^2\cdot\frac{3}{36}+\cdots+6^2\cdot\frac{11}{36}-\left(\frac{161}{36}\right)^2\\
+		&=\frac{2555}{1296}
+	\end{align*}
+
+	Then we have the following.
+
+	\begin{align*}
+		\Corr(X,W)&=\frac{\Cov(X,W)}{\sqrt{\Var(X)\Var(W)}}\\
+		&=\frac{\frac{105}{72}}{\sqrt{\frac{35}{12}\cdot\frac{2555}{1296}}}\\
+		&\approx 0.6082
+	\end{align*}
+\end{example}
+
+\begin{example}[]
+	Consider the setup of Example \ref{ex:jointpdf_cxy}. Find $\Cov(X,Y)$ and $\Corr(X,Y)$.
+
+	\textit{Solution.} Recall that $E(XY)=1$ from Example \ref{ex:jointpdf_E(XY)}. We compute $E(X)$ and $E(Y)$.
+
+	To be completed
+\end{example}
 
 \subsection{Conditional distributions}
 
@@ -458,3 +582,5 @@ THIS ENDS MATERIAL COVERED IN LECTURE. THE FOLLOWING HAS BEEN TYPESET TENTATIVEL
 	$$f_{X_2|X_1}(x_2|x_1)=\frac{f_{X_1,X_2}(x_1,x_2)}{f_{X_1}(x_1)}$$
 	where $x_2$ is in the support of $X_2$.
 \end{definition}
+
+%THIS ENDS MATERIAL COVERED IN LECTURE. THE FOLLOWING HAS BEEN TYPESET TENTATIVELY.

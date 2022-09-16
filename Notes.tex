@@ -6,8 +6,6 @@
 \usepackage{amsthm}
 \usepackage{array}
 
-\usepackage{xunicode}
-\usepackage{xltxtra}
 \usepackage[table,xcdraw]{xcolor}
 \usepackage[shortlabels]{enumitem}
 \usepackage{graphicx}
@@ -24,16 +22,20 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.15}
 \usepgfplotslibrary{fillbetween}
+\usepackage[many]{tcolorbox}
+\usepackage{eso-pic}
+
+%----------------------- Math macros
 
 \newcommand{\dd}[1]{\mathop{\mathrm{d}#1}}
 \renewcommand{\vec}[1]{\mathbf{#1}}
 \newcommand{\Var}{\operatorname{Var}}
 \newcommand{\Cov}{\operatorname{Cov}}
 \newcommand{\Corr}{\operatorname{Corr}}
+\newcommand{\sgn}{\operatorname{sgn}}
 
-\usepackage[many]{tcolorbox}
+%-----------------------------------------------------
 
-\usepackage{eso-pic}
 
 %----------------------- Set Color, light or dark mode
 
@@ -42,6 +44,8 @@
 
 %\definecolor{main}{HTML}{80CBC4} % Main color (dark, material teal 200)
 %\include{dark} % dark mode
+
+%-----------------------------------------------------
 
 \usepackage[hidelinks]{hyperref}
 
@@ -126,26 +130,18 @@
 
 \begin{titlepage} % Suppresses headers and footers on the title page
 
-    \raggedleft % Right align everything
+    \raggedleft
     
-    \vspace*{\baselineskip} % Whitespace at the top of the page
-    
-    %------------------------------------------------
-    %   Author
-    %------------------------------------------------
+    \vspace*{\baselineskip}
     
     {\Large Dr. Katherine Davies} % Author name
     
     \vspace*{0.167\textheight} % Whitespace before the title
     
-    %------------------------------------------------
-    %   Title and subtitle
-    %------------------------------------------------
-    
-    \textbf{\color{main}\HUGE STATS 3D03}\\[\baselineskip]
-    \textbf{\color{main}\Huge Course Notes}\\[\baselineskip]
+    \textbf{\color{main}\HUGE STATS 3D03}\\[\baselineskip] %Title
+    \textbf{\color{main}\Huge Course Notes}\\[\baselineskip] %Subtitle
 
-    {\Large Recorded and adapted by Zachary Lucier}\\[1.5\baselineskip]
+    {\Large Recorded, adapted and illustrated by Zachary Lucier}\\[1.5\baselineskip]
     
     {\Large \textit{McMaster University}}\\[0.5\baselineskip]
     {\Large \textit{Fall 2022}}
@@ -154,13 +150,9 @@
 
     Last updated \today
     
-    %\vfill % Whitespace between the titles and the publisher
-    
-    %------------------------------------------------
-    %   Publisher
-    %------------------------------------------------
-    
-    %{\large The Publisher} % Publisher and logo
+    %\vfill
+
+    %\includegraphics[width=1in]{crest.pdf}
     
     %\vspace*{3\baselineskip} % Whitespace at the bottom of the page
 
@@ -171,7 +163,7 @@
 
 \include{sections/1review}
 
-%\break
+\break
 
 %\setcounter{section}{1}
 \include{sections/2multivariate}

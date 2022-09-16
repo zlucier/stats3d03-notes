@@ -8,6 +8,18 @@
 \pagecolor{darkbg}
 \color{white}
 
+\pgfplotsset{GridPlot1/.style={
+    axis lines=center,
+    axis line style = thick,
+    tick style={thick,white},
+    xlabel style={right},
+    ylabel style={above},
+    grid=both,
+    minor tick num=3,
+    grid style={line width=.2pt, draw=black!70},
+    major grid style={line width=.2pt,draw=gray!50},
+}}
+
 \newtcolorbox{thmbox}{
 enhanced,
 breakable,

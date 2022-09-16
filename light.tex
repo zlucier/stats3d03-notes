@@ -4,6 +4,18 @@
 \definecolor{pink}{HTML}{E91E63}
 \definecolor{indigo}{HTML}{3F51B5}
 
+\pgfplotsset{GridPlot1/.style={
+    axis lines=center,
+    axis line style = thick,
+    tick style={thick,black},
+    xlabel style={right},
+    ylabel style={above},
+    grid=both,
+    minor tick num=3,
+    grid style={line width=.2pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+}}
+
 \newtcolorbox{thmbox}{
 enhanced,
 breakable,
