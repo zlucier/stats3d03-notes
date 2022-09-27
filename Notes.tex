@@ -33,17 +33,18 @@
 \newcommand{\Cov}{\operatorname{Cov}}
 \newcommand{\Corr}{\operatorname{Corr}}
 \newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\ncr}[2]{\genfrac(){0pt}{2}{#1}{#2}}
 
 %-----------------------------------------------------
 
 
 %----------------------- Set Color, light or dark mode
 
-\definecolor{main}{HTML}{009688} % Main color (light, material teal 500)
-\include{light}
+%\definecolor{main}{HTML}{009688} % Main color (light, material teal 500)
+%\include{light}
 
-%\definecolor{main}{HTML}{80CBC4} % Main color (dark, material teal 200)
-%\include{dark} % dark mode
+\definecolor{main}{HTML}{80CBC4} % Main color (dark, material teal 200)
+\include{dark} % dark mode
 
 %-----------------------------------------------------
 
@@ -100,12 +101,16 @@
     \end{defbox}
     }
 
-\newenvironment{example}[1][\unskip]
-    {\begin{exbox}
-    \begin{amsexample}[#1]
-    }{\end{amsexample}
-    \end{exbox}
-    }
+%----------------------------------- Examples
+
+%\newenvironment{example}[1][\unskip] % Include examples
+%    {\begin{exbox}\begin{amsexample}[#1]}
+%    {\end{amsexample}\end{exbox}}
+
+\usepackage{comment} % For abriged version of notes
+\excludecomment{example}
+
+%---------------------------------------------
 
 \lhead{\color{main}STATS 3D03, Fall 2022}
 \chead{\color{main}Course Notes by Zach Lucier}
@@ -165,7 +170,7 @@
 
 \break
 
-%\setcounter{section}{1}
+\setcounter{section}{1}
 \include{sections/2multivariate}
 
 \end{document}
